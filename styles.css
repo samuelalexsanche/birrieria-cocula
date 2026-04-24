@@ -14,7 +14,7 @@
   --brick:        #5C2519;
   --olive:        #6B6638;
 
-  --maxw: 1440px;
+  --maxw: 1280px;
   --pad: clamp(20px, 4vw, 56px);
 
   --f-display: 'Fraunces', 'Times New Roman', serif;
@@ -31,7 +31,7 @@ body{
   color:var(--char);
   font-family:var(--f-body);
   font-weight:400;
-  font-size:17px;
+  font-size:15px;
   line-height:1.55;
   font-variation-settings:"opsz" 14, "SOFT" 50;
   overflow-x:hidden;
@@ -107,10 +107,10 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
     "meta  image"
     "type  image"
     "bottom bottom";
-  gap:32px clamp(24px, 4vw, 64px);
-  padding:clamp(28px, 5vw, 72px) var(--pad) clamp(40px, 6vw, 88px);
+  gap:24px clamp(20px, 3.5vw, 56px);
+  padding:clamp(20px, 3.5vw, 48px) var(--pad) clamp(28px, 4.5vw, 64px);
   max-width:var(--maxw); margin:0 auto;
-  min-height:88vh;
+  min-height:auto;
 }
 
 .hero__meta{
@@ -131,7 +131,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 .hero h1{
   font-family:var(--f-display);
   font-weight:300;
-  font-size:clamp(64px, 11.5vw, 188px);
+  font-size:clamp(48px, 7.5vw, 124px);
   line-height:.86;
   letter-spacing:-.035em;
   margin:0;
@@ -150,9 +150,9 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 .hero h1 .word--3{font-weight:300; margin-left:.55em}
 
 .hero__lede{
-  font-size:clamp(17px, 1.4vw, 21px);
+  font-size:clamp(15px, 1.15vw, 18px);
   line-height:1.55; max-width:46ch;
-  margin:32px 0 36px;
+  margin:24px 0 28px;
   color:var(--char-soft);
 }
 .hero__lede em{font-family:var(--f-italic); color:var(--char); font-size:1.1em}
@@ -175,7 +175,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
   align-self:stretch;
   overflow:visible;
   border-radius:6px;
-  min-height:520px;
+  min-height:380px;
 }
 .hero__image--logo{
   background:transparent;
@@ -244,7 +244,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
   animation:marquee 50s linear infinite;
   white-space:nowrap;
   font-family:var(--f-display); font-style:italic;
-  font-size:clamp(28px, 4vw, 48px);
+  font-size:clamp(20px, 2.6vw, 32px);
   font-weight:300;
 }
 .marquee__track span{flex:0 0 auto; display:inline-flex; align-items:center; gap:48px}
@@ -270,7 +270,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 .historia__head{grid-area:head; align-self:start}
 .historia__head h2{
   font-family:var(--f-display); font-weight:300;
-  font-size:clamp(48px, 7vw, 104px);
+  font-size:clamp(36px, 5vw, 76px);
   line-height:.92; letter-spacing:-.025em;
   margin:8px 0 0;
 }
@@ -327,7 +327,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 .menu__head{max-width:var(--maxw); margin:0 auto 56px; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end}
 .menu__head h2{
   font-family:var(--f-display); font-weight:300;
-  font-size:clamp(48px, 7vw, 104px);
+  font-size:clamp(36px, 5vw, 76px);
   line-height:.92; letter-spacing:-.025em;
   margin:8px 0 0;
 }
@@ -434,7 +434,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 .spotlight__type .eyebrow{color:color-mix(in srgb, var(--cream) 60%, transparent)}
 .spotlight__type h2{
   font-family:var(--f-display); font-weight:300;
-  font-size:clamp(56px, 8vw, 120px);
+  font-size:clamp(40px, 5.5vw, 84px);
   line-height:.9; letter-spacing:-.03em;
   margin:14px 0 28px; color:var(--cream-soft);
 }
@@ -475,7 +475,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 .gallery__head{margin-bottom:56px; max-width:780px}
 .gallery__head h2{
   font-family:var(--f-display); font-weight:300;
-  font-size:clamp(40px, 6vw, 84px);
+  font-size:clamp(32px, 4.5vw, 64px);
   line-height:.95; letter-spacing:-.025em;
   margin:8px 0 0;
 }
@@ -508,7 +508,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 .visita__head .eyebrow{color:color-mix(in srgb, var(--cream) 60%, transparent)}
 .visita__head h2{
   font-family:var(--f-display); font-weight:300;
-  font-size:clamp(56px, 8vw, 120px);
+  font-size:clamp(40px, 5.5vw, 84px);
   line-height:.9; letter-spacing:-.03em;
   margin:14px 0 0; color:var(--cream-soft);
 }
@@ -560,7 +560,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 .foot__logo{width:88px; height:88px; border-radius:50%; object-fit:cover; flex:0 0 auto}
 .foot__brand h3{
   font-family:var(--f-display); font-weight:300;
-  font-size:clamp(40px, 5vw, 72px);
+  font-size:clamp(28px, 3.5vw, 52px);
   line-height:.95; letter-spacing:-.02em;
   margin:0;
 }
