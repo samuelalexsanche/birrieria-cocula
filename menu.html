@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Menú · Birriería Cocula</title>
-<meta name="description" content="Menú completo de Birriería Cocula · Birria, botanas, acompañamientos, ensaladas, menú infantil, postres y bebidas" />
+<title>La Carta · Birriería Cocula</title>
+<meta name="description" content="La carta de Birriería Cocula · Birria de chivo, botanas, acompañamientos, ensaladas, postres y la barra de bebidas. Tradición tapatía desde 1978." />
 <meta name="theme-color" content="#24262F" />
 <link rel="icon" type="image/png" href="assets/images/brand/logo.png" />
 
@@ -17,16 +17,17 @@
   --cream: #F2E5C2;
   --cream-deep: #E9D69E;
   --cream-soft: #F8EFD4;
+  --paper: #F4EAD0;
+  --paper-warm: #EFE2BE;
   --char: #24262F;
   --char-soft: #3A3D49;
   --char-mute: #6B6E78;
   --orange: #E8851E;
   --orange-deep: #C56A0E;
-  --orange-light: rgba(232,133,30,.08);
-  --orange-lighter: rgba(232,133,30,.04);
-  --line: rgba(36,38,47,.12);
-  --line-light: rgba(36,38,47,.06);
-  --maxw: 1240px;
+  --line: rgba(36,38,47,.18);
+  --line-soft: rgba(36,38,47,.08);
+  --maxw: 1200px;
+  --maxw-narrow: 880px;
   --pad: clamp(20px, 4vw, 56px);
   --f-display: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
   --f-body: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
@@ -35,9 +36,9 @@
 
 *,*::before,*::after{box-sizing:border-box}
 html,body{margin:0;padding:0}
-html{scroll-behavior:smooth; -webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
 body{
-  background:linear-gradient(135deg, var(--cream-soft) 0%, rgba(242,229,194,.5) 100%);
+  background:var(--paper);
   color:var(--char);
   font-family:var(--f-body);
   font-weight:400;
@@ -48,37 +49,13 @@ body{
   position:relative;
 }
 
-/* ─── BACKGROUND DECORATIONS ──────────────────────────── */
+/* subtle paper grain */
 body::before{
   content:"";
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
+  position:fixed; inset:0;
   background-image:
-    radial-gradient(circle at 20% 50%, rgba(232,133,30,.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(232,133,30,.06) 0%, transparent 50%),
-    radial-gradient(circle at 40% 20%, rgba(232,133,30,.04) 0%, transparent 40%);
-  pointer-events:none;
-  z-index:0;
-}
-
-body::after{
-  content:"";
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  background-image:
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 2px,
-      rgba(36,38,47,.01) 2px,
-      rgba(36,38,47,.01) 4px
-    );
+    radial-gradient(ellipse at 15% 10%, rgba(232,133,30,.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(36,38,47,.04) 0%, transparent 50%);
   pointer-events:none;
   z-index:0;
 }
@@ -86,58 +63,46 @@ body::after{
 img{max-width:100%; display:block}
 a{color:inherit; text-decoration:none}
 
-/* ─── HEADER ──────────────────────────────────────────── */
+/* ─── HEADER ───────────────────────────────────────────── */
 .menu-header{
   position:fixed;
-  top:0;
-  left:0;
-  right:0;
+  top:0; left:0; right:0;
   z-index:50;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:24px;
-  padding:16px var(--pad);
-  background:color-mix(in srgb, var(--char) 95%, transparent);
+  padding:14px var(--pad);
+  background:color-mix(in srgb, var(--char) 96%, transparent);
   color:var(--cream-soft);
   backdrop-filter:saturate(140%) blur(12px);
-  border-bottom:1px solid rgba(248,239,212,.1);
+  border-bottom:1px solid rgba(248,239,212,.08);
 }
-
 .menu-header__brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  color:inherit;
+  display:flex; align-items:center; gap:12px;
 }
-
 .menu-header__brand img{
-  width:40px;
-  height:40px;
+  width:38px; height:38px;
   border-radius:50%;
   object-fit:cover;
   background:var(--cream-soft);
-  border:2px solid var(--orange);
+  border:1.5px solid var(--orange);
 }
-
 .menu-header__brand span{
   font-family:var(--f-display);
   font-weight:700;
   font-size:13px;
   letter-spacing:.18em;
   text-transform:uppercase;
-  display:flex;
-  flex-direction:column;
+  display:flex; flex-direction:column;
   line-height:1.1;
 }
 .menu-header__brand small{
   font-weight:400;
   font-size:9px;
   letter-spacing:.32em;
-  opacity:.75;
+  opacity:.72;
 }
-
 .menu-header__back{
   font-family:var(--f-display);
   font-weight:700;
@@ -145,495 +110,647 @@ a{color:inherit; text-decoration:none}
   letter-spacing:.22em;
   text-transform:uppercase;
   padding:11px 20px;
-  background:var(--orange);
-  color:#fff;
+  background:transparent;
+  color:var(--cream-soft);
+  border:1px solid rgba(248,239,212,.35);
   border-radius:2px;
-  border:none;
   cursor:pointer;
   transition:all .25s ease;
+}
+.menu-header__back:hover{
+  background:var(--orange);
+  border-color:var(--orange);
+  color:#fff;
+}
+
+/* ─── EDITORIAL HERO ───────────────────────────────────── */
+.menu-hero{
   position:relative;
+  margin-top:0;
+  padding:120px var(--pad) 0;
   overflow:hidden;
 }
-
-.menu-header__back::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:var(--orange-deep);
-  transition:left .3s ease;
-  z-index:-1;
-}
-
-.menu-header__back:hover::before{
-  left:0;
-}
-
-.menu-header__back:hover{
-  transform:translateY(-2px);
-}
-
-/* ─── HERO SECTION ─────────────────────────────────────── */
-.menu-hero{
-  padding:120px var(--pad) 80px;
-  text-align:center;
-  margin-top:0;
-  position:relative;
-  overflow:visible;
-}
-
-.menu-hero::before{
-  content:"";
-  position:absolute;
-  top:-40%;
-  left:-20%;
-  width:500px;
-  height:500px;
-  background:radial-gradient(circle, rgba(232,133,30,.15) 0%, transparent 70%);
-  border-radius:50%;
-  filter:blur(40px);
-  z-index:0;
-}
-
-.menu-hero::after{
-  content:"";
-  position:absolute;
-  bottom:-30%;
-  right:-10%;
-  width:400px;
-  height:400px;
-  background:radial-gradient(circle, rgba(232,133,30,.12) 0%, transparent 70%);
-  border-radius:50%;
-  filter:blur(40px);
-  z-index:0;
-}
-
-.menu-hero > *{
-  position:relative;
-  z-index:2;
-}
-
-.menu-hero__title{
-  font-family:var(--f-display);
-  font-weight:700;
-  font-size:clamp(42px, 8vw, 72px);
-  letter-spacing:.02em;
-  text-transform:uppercase;
-  color:var(--char);
-  margin:0 0 16px;
-  line-height:1.1;
-  position:relative;
-  display:inline-block;
-}
-
-.menu-hero__title::after{
-  content:"";
-  position:absolute;
-  bottom:-8px;
-  left:50%;
-  transform:translateX(-50%);
-  width:80px;
-  height:3px;
-  background:linear-gradient(90deg, transparent, var(--orange), transparent);
-}
-
-.menu-hero__subtitle{
-  font-family:var(--f-accent);
-  font-style:italic;
-  font-weight:400;
-  font-size:clamp(28px, 4vw, 48px);
-  color:var(--orange);
-  margin:20px 0 0;
-  line-height:1.2;
-}
-
-/* ─── MAIN CONTAINER ────────────────────────────────────── */
-.menu-container{
+.menu-hero__inner{
   max-width:var(--maxw);
   margin:0 auto;
-  padding:0 var(--pad) 80px;
-  position:relative;
-  z-index:10;
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:clamp(32px, 6vw, 80px);
+  align-items:end;
+  padding-bottom:80px;
 }
-
-/* ─── TABS ─────────────────────────────────────────────── */
-.menu-tabs{
+.menu-hero__meta{
+  font-family:var(--f-display);
+  font-size:10px;
+  letter-spacing:.4em;
+  text-transform:uppercase;
+  color:var(--char-mute);
+  margin:0 0 24px;
   display:flex;
-  gap:16px;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin-bottom:72px;
-  position:relative;
-  z-index:10;
+  align-items:center;
+  gap:14px;
 }
-
-.menu-tabs::before{
+.menu-hero__meta::before,
+.menu-hero__meta::after{
   content:"";
-  position:absolute;
-  bottom:-20px;
-  left:50%;
-  transform:translateX(-50%);
-  width:120px;
-  height:2px;
-  background:linear-gradient(90deg, transparent, var(--orange), transparent);
+  height:1px; flex:1;
+  background:var(--line);
+  max-width:60px;
+}
+.menu-hero__title{
+  font-family:var(--f-accent);
+  font-weight:400;
+  font-style:italic;
+  font-size:clamp(56px, 11vw, 132px);
+  letter-spacing:-.02em;
+  color:var(--char);
+  margin:0;
+  line-height:.92;
+}
+.menu-hero__title em{
+  font-style:normal;
+  font-family:var(--f-display);
+  font-weight:700;
+  text-transform:uppercase;
+  font-size:.55em;
+  letter-spacing:.04em;
+  display:block;
+  margin-top:18px;
+  color:var(--orange);
+}
+.menu-hero__lede{
+  font-family:var(--f-accent);
+  font-style:italic;
+  font-size:clamp(16px, 1.6vw, 19px);
+  line-height:1.6;
+  color:var(--char-soft);
+  max-width:38ch;
+  margin:0 0 18px;
+}
+.menu-hero__signature{
+  font-family:var(--f-display);
+  font-size:10px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--char-mute);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.menu-hero__signature svg{ flex-shrink:0 }
+
+/* ornamental divider */
+.divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 var(--pad);
+}
+.divider::before,
+.divider::after{
+  content:"";
+  height:1px; flex:1;
+  background:var(--line);
+}
+.divider span{
+  font-family:var(--f-accent);
+  font-style:italic;
+  font-size:14px;
+  color:var(--char-mute);
+  letter-spacing:.12em;
 }
 
+/* ─── TAB NAV (sticky) ─────────────────────────────────── */
+.menu-tabs-wrap{
+  position:sticky;
+  top:68px;
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter:blur(10px);
+  border-top:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line-soft);
+  padding:14px var(--pad);
+  margin-bottom:48px;
+}
+.menu-tabs{
+  max-width:var(--maxw);
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:48px;
+  flex-wrap:wrap;
+}
 .menu-tabs button{
   font-family:var(--f-display);
   font-weight:700;
-  font-size:13px;
-  letter-spacing:.22em;
+  font-size:11px;
+  letter-spacing:.32em;
   text-transform:uppercase;
-  padding:16px 28px;
-  background:rgba(255,255,255,.4);
-  color:var(--char-soft);
-  border:1.5px solid rgba(232,133,30,.2);
+  padding:8px 0;
+  background:transparent;
+  color:var(--char-mute);
+  border:none;
+  border-bottom:1.5px solid transparent;
   cursor:pointer;
-  position:relative;
-  transition:all .3s ease;
-  border-radius:4px;
-  backdrop-filter:blur(10px);
+  transition:all .25s ease;
+  display:flex;
+  align-items:baseline;
+  gap:10px;
 }
-
-.menu-tabs button::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:4px;
-  background:linear-gradient(135deg, rgba(232,133,30,.1) 0%, transparent 100%);
-  opacity:0;
-  transition:opacity .3s ease;
+.menu-tabs button .tab-num{
+  font-family:var(--f-accent);
+  font-style:italic;
+  font-size:13px;
+  font-weight:400;
+  letter-spacing:0;
+  color:var(--orange);
+  opacity:.7;
 }
-
-.menu-tabs button:hover{
-  background:rgba(255,255,255,.6);
-  color:var(--char);
-  border-color:var(--orange);
-  transform:translateY(-2px);
-}
-
+.menu-tabs button:hover{ color:var(--char) }
 .menu-tabs button.is-active{
-  background:linear-gradient(135deg, var(--orange), var(--orange-deep));
-  color:#fff;
-  border-color:var(--orange-deep);
-  transform:translateY(-3px);
-  box-shadow:0 12px 32px rgba(232,133,30,.35);
+  color:var(--char);
+  border-bottom-color:var(--orange);
+}
+.menu-tabs button.is-active .tab-num{ opacity:1 }
+
+/* table of contents */
+.toc{
+  max-width:var(--maxw);
+  margin:0 auto 64px;
+  padding:0 var(--pad);
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px 24px;
+}
+.toc a{
+  font-family:var(--f-display);
+  font-size:10px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--char-mute);
+  padding:4px 0;
+  border-bottom:1px solid transparent;
+  transition:all .2s ease;
+}
+.toc a:hover{
+  color:var(--orange);
+  border-bottom-color:var(--orange);
 }
 
-/* ─── MENU SECTIONS ────────────────────────────────────── */
-.menu-section{
-  display:none;
-  animation:fadeInUp .5s ease;
+/* ─── MAIN ─────────────────────────────────────────────── */
+.menu-container{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 var(--pad) 120px;
+  position:relative;
+  z-index:10;
 }
 
+.menu-section{ display:none }
 .menu-section.is-active{
   display:block;
+  animation:fadeUp .5s ease;
 }
-
-@keyframes fadeInUp{
-  from{opacity:0; transform:translateY(20px)}
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(16px)}
   to{opacity:1; transform:translateY(0)}
 }
 
-.menu-category{
-  margin-bottom:64px;
-  background:rgba(255,255,255,.55);
-  border-radius:12px;
-  padding:48px;
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.4);
-  transition:all .3s ease;
+/* ─── CHAPTER (category) ───────────────────────────────── */
+.chapter{
+  padding:80px 0;
+  border-top:1px solid var(--line-soft);
+  position:relative;
+}
+.chapter:first-of-type{ border-top:none; padding-top:32px }
+
+.chapter__head{
+  display:grid;
+  grid-template-columns: 80px 1fr;
+  gap:24px;
+  align-items:start;
+  margin-bottom:56px;
+  max-width:var(--maxw-narrow);
+}
+.chapter__roman{
+  font-family:var(--f-accent);
+  font-style:italic;
+  font-weight:400;
+  font-size:42px;
+  color:var(--orange);
+  line-height:1;
+  border-right:1px solid var(--line);
+  padding-right:24px;
+  text-align:center;
+}
+.chapter__roman small{
+  display:block;
+  font-family:var(--f-display);
+  font-style:normal;
+  font-size:9px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--char-mute);
+  margin-top:8px;
+  font-weight:400;
+}
+.chapter__titles{ padding-top:4px }
+.chapter__eyebrow{
+  font-family:var(--f-display);
+  font-size:10px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--char-mute);
+  margin:0 0 10px;
+}
+.chapter__title{
+  font-family:var(--f-accent);
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(38px, 6vw, 64px);
+  line-height:1;
+  letter-spacing:-.01em;
+  color:var(--char);
+  margin:0 0 14px;
+}
+.chapter__note{
+  font-family:var(--f-body);
+  font-size:14px;
+  color:var(--char-mute);
+  margin:0;
+  max-width:48ch;
+  line-height:1.55;
+}
+
+/* ─── ITEM LIST (clean) ────────────────────────────────── */
+.items{
+  display:grid;
+  gap:0;
+  max-width:var(--maxw-narrow);
+}
+.items--two{
+  max-width:none;
+  grid-template-columns:1fr 1fr;
+  gap:0 64px;
+}
+
+.item{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:24px;
+  align-items:baseline;
+  padding:22px 0;
+  border-bottom:1px solid var(--line-soft);
+}
+.item:last-child{ border-bottom:none }
+
+.item__head{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.item__name{
+  font-family:var(--f-accent);
+  font-style:italic;
+  font-weight:400;
+  font-size:22px;
+  color:var(--char);
+  margin:0;
+  line-height:1.2;
+}
+.item__dots{
+  flex:1;
+  height:1px;
+  border-bottom:1px dotted var(--line);
+  align-self:flex-end;
+  margin-bottom:6px;
+  min-width:24px;
+}
+.item__price{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.06em;
+  color:var(--char);
+  white-space:nowrap;
+}
+.item__desc{
+  grid-column:1 / -1;
+  font-family:var(--f-body);
+  font-size:13px;
+  color:var(--char-mute);
+  margin:8px 0 0;
+  line-height:1.55;
+  max-width:60ch;
+}
+
+/* sub-options for items with variants */
+.item__variants{
+  grid-column:1 / -1;
+  margin-top:14px;
+  display:grid;
+  gap:6px;
+  padding-left:18px;
+  border-left:1px solid var(--line);
+}
+.variant{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.variant__name{
+  font-family:var(--f-body);
+  font-size:13px;
+  font-weight:500;
+  color:var(--char-soft);
+  letter-spacing:.02em;
+}
+.variant__name::before{
+  content:"—";
+  color:var(--orange);
+  margin-right:8px;
+  opacity:.7;
+}
+.variant__dots{
+  flex:1;
+  border-bottom:1px dotted var(--line-soft);
+  height:1px;
+  align-self:flex-end;
+  margin-bottom:5px;
+}
+.variant__price{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:.06em;
+  color:var(--char-soft);
+  white-space:nowrap;
+}
+
+/* ─── SIGNATURE FEATURE (image + item) ─────────────────── */
+.feature{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(28px, 5vw, 64px);
+  align-items:center;
+  padding:48px 0;
+  margin:8px 0 32px;
+  border-top:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line-soft);
+}
+.feature--reverse .feature__media{ order:2 }
+.feature__media{
+  position:relative;
+  aspect-ratio: 4/5;
+  overflow:hidden;
+  background:var(--char);
+}
+.feature__media img{
+  width:100%; height:100%;
+  object-fit:cover;
+  filter:saturate(1.05);
+  transition:transform .8s ease;
+}
+.feature:hover .feature__media img{ transform:scale(1.04) }
+.feature__media::after{
+  content:"";
+  position:absolute; inset:14px;
+  border:1px solid rgba(248,239,212,.25);
+  pointer-events:none;
+}
+.feature__caption{
+  position:absolute;
+  left:24px; bottom:18px;
+  font-family:var(--f-display);
+  font-size:9px;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--cream-soft);
+  z-index:2;
+}
+.feature__body{}
+.feature__tag{
+  font-family:var(--f-display);
+  font-size:10px;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin:0 0 14px;
+  display:flex; align-items:center; gap:10px;
+}
+.feature__tag::before{
+  content:"";
+  width:24px; height:1px; background:var(--orange);
+}
+.feature__title{
+  font-family:var(--f-accent);
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(32px, 4.5vw, 48px);
+  line-height:1.05;
+  margin:0 0 18px;
+  color:var(--char);
+}
+.feature__text{
+  font-family:var(--f-body);
+  font-size:14px;
+  color:var(--char-soft);
+  line-height:1.7;
+  margin:0 0 24px;
+  max-width:42ch;
+}
+.feature__pricing{
+  display:grid;
+  gap:10px;
+  padding:18px 0 0;
+  border-top:1px solid var(--line);
+  max-width:380px;
+}
+.feature__price-row{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  font-family:var(--f-body);
+  font-size:14px;
+}
+.feature__price-row .lbl{
+  font-family:var(--f-accent);
+  font-style:italic;
+  color:var(--char-soft);
+}
+.feature__price-row .dots{
+  flex:1; height:1px;
+  border-bottom:1px dotted var(--line);
+  align-self:flex-end; margin-bottom:5px;
+}
+.feature__price-row .pr{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.06em;
+}
+
+/* ─── SUB-CATEGORY (e.g., Paquetes / Extras) ───────────── */
+.sub-cat{
+  margin-top:40px;
+}
+.sub-cat__title{
+  font-family:var(--f-display);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.36em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin:0 0 18px;
+  display:flex; align-items:center; gap:14px;
+}
+.sub-cat__title::before{
+  content:"§";
+  font-family:var(--f-accent);
+  font-style:italic;
+  font-size:18px;
+  letter-spacing:0;
+}
+.sub-cat__title::after{
+  content:"";
+  flex:1; height:1px;
+  background:var(--line);
+}
+
+/* drinks: tighter, two-column lists */
+.section--drinks .chapter__roman{ color:var(--char-soft) }
+
+/* ─── FOOTER ───────────────────────────────────────────── */
+.menu-footer{
+  background:var(--char);
+  color:var(--cream-soft);
+  padding:80px var(--pad) 48px;
   position:relative;
   overflow:hidden;
 }
-
-.menu-category::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:4px;
-  background:linear-gradient(90deg, var(--orange), transparent);
-}
-
-.menu-category::after{
-  content:"";
-  position:absolute;
-  bottom:0;
-  right:0;
-  width:200px;
-  height:200px;
-  background:radial-gradient(circle, var(--orange-lighter) 0%, transparent 70%);
-  border-radius:50%;
-  pointer-events:none;
-}
-
-.menu-category:hover{
-  background:rgba(255,255,255,.7);
-  box-shadow:0 16px 48px rgba(0,0,0,.1);
-  transform:translateY(-4px);
-}
-
-.menu-category__title{
-  font-family:var(--f-display);
-  font-weight:700;
-  font-size:clamp(22px, 3vw, 32px);
-  letter-spacing:.02em;
-  text-transform:uppercase;
-  color:var(--char);
-  margin:0 0 36px;
-  padding-bottom:16px;
-  border-bottom:2px solid var(--orange);
-  position:relative;
-  z-index:2;
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.menu-category__title::before{
-  content:"◆";
-  color:var(--orange);
-  font-size:14px;
-}
-
-.menu-items{
+.menu-footer__inner{
+  max-width:var(--maxw);
+  margin:0 auto;
   display:grid;
-  gap:28px;
-  position:relative;
-  z-index:2;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  align-items:center;
 }
-
-.menu-item{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:24px;
-  padding:24px;
-  border-left:3px solid var(--orange-lighter);
-  border-radius:4px;
-  background:rgba(232,133,30,.02);
-  transition:all .25s ease;
-}
-
-.menu-item:hover{
-  background:rgba(232,133,30,.06);
-  border-left-color:var(--orange);
-  padding-left:28px;
-}
-
-.menu-item__content{
-  flex:1;
-  min-width:0;
-}
-
-.menu-item__name{
-  font-family:var(--f-display);
-  font-weight:700;
-  font-size:15px;
-  letter-spacing:.02em;
-  color:var(--char);
+.menu-footer__mark{
+  font-family:var(--f-accent);
+  font-style:italic;
+  font-size:clamp(40px, 6vw, 72px);
+  line-height:1;
   margin:0;
-  margin-bottom:6px;
-  transition:color .25s ease;
 }
-
-.menu-item:hover .menu-item__name{
+.menu-footer__mark small{
+  display:block;
+  font-family:var(--f-display);
+  font-style:normal;
+  font-size:10px;
+  letter-spacing:.36em;
+  text-transform:uppercase;
   color:var(--orange);
+  margin-bottom:16px;
+  font-weight:700;
 }
-
-.menu-item__desc{
+.menu-footer__meta{
   font-family:var(--f-body);
-  font-weight:400;
   font-size:13px;
-  color:var(--char-mute);
-  margin:0;
-  line-height:1.5;
-  opacity:.8;
+  color:rgba(248,239,212,.7);
+  line-height:1.7;
 }
-
-.menu-item__price{
+.menu-footer__meta strong{
+  display:block;
   font-family:var(--f-display);
+  font-size:10px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--cream-soft);
+  margin-bottom:8px;
   font-weight:700;
-  font-size:16px;
-  color:#fff;
-  white-space:nowrap;
-  flex-shrink:0;
-  padding:8px 18px;
-  background:linear-gradient(135deg, var(--orange), var(--orange-deep));
-  border-radius:6px;
-  letter-spacing:.02em;
-  box-shadow:0 4px 12px rgba(232,133,30,.3);
 }
-
-/* ─── SUBITEMS ──────────────────────────────────────────── */
-.menu-subitems{
-  margin-left:0;
-  margin-top:16px;
-  padding-left:20px;
-  border-left:3px solid var(--orange);
-  display:grid;
+.menu-footer__back{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-top:24px;
+  font-family:var(--f-display);
+  font-size:11px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--cream-soft);
+  padding-bottom:6px;
+  border-bottom:1px solid var(--orange);
+  transition:gap .25s ease;
+}
+.menu-footer__back:hover{ gap:16px }
+.menu-footer__rule{
+  max-width:var(--maxw);
+  margin:64px auto 0;
+  height:1px;
+  background:rgba(248,239,212,.12);
+}
+.menu-footer__bottom{
+  max-width:var(--maxw);
+  margin:24px auto 0;
+  display:flex;
+  justify-content:space-between;
+  font-family:var(--f-display);
+  font-size:9px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:rgba(248,239,212,.5);
+  flex-wrap:wrap;
   gap:12px;
 }
 
-.menu-subitem{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
-  padding:8px 0;
-  border-bottom:1px dashed rgba(232,133,30,.2);
+/* ─── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width:880px){
+  .menu-hero__inner{
+    grid-template-columns:1fr;
+    padding-bottom:60px;
+    gap:32px;
+  }
+  .feature{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+  .feature--reverse .feature__media{ order:0 }
+  .feature__media{ aspect-ratio: 5/4 }
+  .items--two{ grid-template-columns:1fr; gap:0 }
+  .menu-footer__inner{ grid-template-columns:1fr; gap:32px }
+  .menu-footer__bottom{ justify-content:flex-start }
 }
-
-.menu-subitem:last-child{
-  border-bottom:none;
-}
-
-.menu-subitem__name{
-  font-family:var(--f-body);
-  font-weight:500;
-  font-size:14px;
-  color:var(--char-soft);
-  margin:0;
-}
-
-.menu-subitem__price{
-  font-family:var(--f-display);
-  font-weight:700;
-  font-size:14px;
-  color:var(--orange);
-  white-space:nowrap;
-  background:rgba(232,133,30,.1);
-  padding:4px 10px;
-  border-radius:3px;
-}
-
-/* ─── SUBCATEGORY ────────────────────────────────────────── */
-.menu-subcategory{
-  margin:32px 0 0;
-  padding:28px;
-  border:1px dashed var(--line);
-  border-radius:8px;
-  background:rgba(232,133,30,.02);
-}
-
-.menu-subcategory__title{
-  font-family:var(--f-display);
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.3em;
-  text-transform:uppercase;
-  color:var(--orange);
-  margin:0 0 20px;
-  padding-bottom:8px;
-  border-bottom:2px dashed var(--orange);
-  position:relative;
-}
-
-.menu-subcategory__title::before{
-  content:"✦ ";
-  margin-right:6px;
-}
-
-/* ─── RESPONSIVE ──────────────────────────────────────── */
-@media (max-width:768px){
-  .menu-tabs{
-    gap:10px;
-    margin-bottom:48px;
-  }
-
-  .menu-tabs::before{
-    bottom:-16px;
-    width:80px;
-  }
-
-  .menu-tabs button{
-    padding:13px 18px;
-    font-size:11px;
-  }
-
-  .menu-container{
-    padding:0 var(--pad) 60px;
-  }
-
-  .menu-category{
-    padding:32px;
-    margin-bottom:48px;
-  }
-
-  .menu-hero{
-    padding:100px var(--pad) 60px;
-  }
-
-  .menu-item{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:8px;
-    padding:18px;
-  }
-
-  .menu-item__price{
-    padding:6px 14px;
-    font-size:15px;
-  }
-
-  .menu-item__name{
-    font-size:14px;
-  }
-}
-
-@media (max-width:560px){
-  .menu-hero__title{
-    font-size:clamp(32px, 7vw, 48px);
-    margin-bottom:12px;
-  }
-
-  .menu-hero__title::after{
-    width:60px;
-  }
-
-  .menu-hero__subtitle{
-    font-size:clamp(20px, 3vw, 32px);
-    margin-top:16px;
-  }
-
-  .menu-category{
-    padding:20px;
+@media (max-width:640px){
+  .menu-header{ padding:12px var(--pad) }
+  .menu-hero{ padding-top:96px }
+  .menu-tabs-wrap{ top:62px; padding:12px var(--pad) }
+  .menu-tabs{ gap:24px }
+  .menu-tabs button{ font-size:10px; letter-spacing:.24em }
+  .toc{ display:none }
+  .chapter{ padding:56px 0 }
+  .chapter__head{
+    grid-template-columns:60px 1fr;
+    gap:18px;
     margin-bottom:36px;
-    border-radius:8px;
   }
-
-  .menu-category__title{
-    font-size:18px;
-    margin-bottom:20px;
-  }
-
-  .menu-items{
-    gap:16px;
-  }
-
-  .menu-item{
-    padding:14px;
-  }
-
-  .menu-subitems{
-    margin-left:0;
-    padding-left:14px;
-  }
-
-  .menu-subcategory{
-    margin:24px 0 0;
-    padding:20px;
-  }
+  .chapter__roman{ font-size:32px; padding-right:14px }
+  .item{ padding:18px 0 }
+  .item__name{ font-size:19px }
+  .feature__media{ aspect-ratio: 1/1 }
 }
 </style>
 </head>
 <body>
 
-<!-- ─── HEADER ──────────────────────────────────────────── -->
+<!-- ─── HEADER ───────────────────────────────────────────── -->
 <header class="menu-header">
   <a href="index.html" class="menu-header__brand" aria-label="Volver al inicio">
     <img src="assets/images/brand/logo.png" alt="" />
@@ -645,494 +762,644 @@ a{color:inherit; text-decoration:none}
   <a href="index.html" class="menu-header__back">← Volver</a>
 </header>
 
-<!-- ─── HERO ────────────────────────────────────────────── -->
+<!-- ─── EDITORIAL HERO ──────────────────────────────────── -->
 <section class="menu-hero">
-  <h1 class="menu-hero__title">Nuestra Carta</h1>
-  <p class="menu-hero__subtitle">desde 1978</p>
+  <div class="menu-hero__inner">
+    <div>
+      <p class="menu-hero__meta"><span>La Carta · MMXXVI</span></p>
+      <h1 class="menu-hero__title">
+        Carta<br/>
+        de la <span style="font-style:normal; font-family:var(--f-display); font-weight:700; text-transform:uppercase; font-size:.42em; letter-spacing:.05em; color:var(--orange); display:inline-block; vertical-align:middle; padding:0 8px;">·</span> Casa
+        <em>desde 1978 · Guadalajara</em>
+      </h1>
+    </div>
+    <div>
+      <p class="menu-hero__lede">Una receta de familia, un comal que nunca se apaga y la paciencia que pide una birria bien hecha. Bienvenidos a la mesa.</p>
+      <p class="menu-hero__signature">
+        <svg width="36" height="14" viewBox="0 0 36 14" fill="none" aria-hidden="true">
+          <path d="M1 7 Q 9 1 18 7 T 35 7" stroke="#E8851E" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        </svg>
+        Cocula, Jalisco
+      </p>
+    </div>
+  </div>
+  <div class="divider"><span>◆</span></div>
 </section>
 
-<!-- ─── MAIN MENU ────────────────────────────────────────── -->
+<!-- ─── STICKY TAB NAV ──────────────────────────────────── -->
+<div class="menu-tabs-wrap">
+  <nav class="menu-tabs" aria-label="Categorías del menú">
+    <button class="is-active" data-tab="comida"><span class="tab-num">i.</span> Comida</button>
+    <button data-tab="bebidas"><span class="tab-num">ii.</span> Barra &amp; Bebidas</button>
+  </nav>
+</div>
+
 <main class="menu-container">
 
-  <!-- TABS -->
-  <nav class="menu-tabs" aria-label="Categorías del menú">
-    <button class="is-active" data-tab="comida">🍽️ Comida</button>
-    <button data-tab="bebidas">🍹 Bebidas</button>
-  </nav>
-
   <!-- ════════════════════════════════════════════════════════ -->
-  <!-- COMIDA SECTION -->
+  <!-- COMIDA -->
   <!-- ════════════════════════════════════════════════════════ -->
   <section class="menu-section is-active" data-panel="comida">
 
-    <!-- BIRRIA -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Birria</h2>
-      <div class="menu-items">
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Grande</p>
-            <p class="menu-item__desc">180 gms · Especialidad de la casa</p>
-          </div>
-          <div class="menu-subitems">
-            <div class="menu-subitem">
-              <p class="menu-subitem__name">Carnaza</p>
-              <p class="menu-subitem__price">$239</p>
-            </div>
-            <div class="menu-subitem">
-              <p class="menu-subitem__name">Surtida</p>
-              <p class="menu-subitem__price">$199</p>
-            </div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Chica</p>
-            <p class="menu-item__desc">130 gms</p>
-          </div>
-          <div class="menu-subitems">
-            <div class="menu-subitem">
-              <p class="menu-subitem__name">Carnaza</p>
-              <p class="menu-subitem__price">$195</p>
-            </div>
-            <div class="menu-subitem">
-              <p class="menu-subitem__name">Surtida</p>
-              <p class="menu-subitem__price">$175</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- TOC -->
+    <nav class="toc" aria-label="Tabla de contenidos">
+      <a href="#cap-birria">I · Birria</a>
+      <a href="#cap-botanas">II · Botanas</a>
+      <a href="#cap-acomp">III · Acompañamientos</a>
+      <a href="#cap-ensaladas">IV · Ensaladas</a>
+      <a href="#cap-infantil">V · Menú Infantil</a>
+      <a href="#cap-postres">VI · Postres</a>
+    </nav>
 
-    <!-- BOTANAS -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Botanas</h2>
-      <div class="menu-items">
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Costilla de Cerdo Dorada</p>
-            <p class="menu-item__desc">200 gms · Dorada al momento</p>
-          </div>
-          <p class="menu-item__price">$189</p>
+    <!-- ─── CAP I · BIRRIA ─────────────────────────────── -->
+    <article id="cap-birria" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">I<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">La especialidad</p>
+          <h2 class="chapter__title">Birria</h2>
+          <p class="chapter__note">El platillo que nos define. Cocción lenta, consomé claro y la mano de la familia desde 1978.</p>
         </div>
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Macho</p>
-            <p class="menu-item__desc">200 gms · Asado al carbón</p>
-          </div>
-          <p class="menu-item__price">$189</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Surtida</p>
-            <p class="menu-item__desc">200 gms · Hígado, riñón y macho</p>
-          </div>
-          <p class="menu-item__price">$160</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Botana Chica</p>
-            <p class="menu-item__desc">140 gms · Para abrir el apetito</p>
-          </div>
-          <p class="menu-item__price">$155</p>
-        </div>
-      </div>
-    </div>
+      </header>
 
-    <!-- ACOMPAÑAMIENTOS -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Acompañamientos</h2>
-      <div class="menu-items">
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Frijoles</p>
-            <p class="menu-item__desc">50 gms</p>
-          </div>
-          <p class="menu-item__price">$29</p>
+      <!-- Signature feature: Birria Grande -->
+      <div class="feature">
+        <div class="feature__media">
+          <img src="assets/images/menu/birria-grande.jpg" alt="Birria grande de la casa" loading="lazy" />
+          <span class="feature__caption">Plato insignia</span>
         </div>
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Guacamole</p>
-            <p class="menu-item__desc">200 gms · Aguacate fresco</p>
-          </div>
-          <p class="menu-item__price">$105</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Quesadilla</p>
-            <p class="menu-item__desc">50 gms · Tortilla recién hecha</p>
-          </div>
-          <div class="menu-subitems">
-            <div class="menu-subitem">
-              <p class="menu-subitem__name">Sencilla</p>
-              <p class="menu-subitem__price">$45</p>
+        <div class="feature__body">
+          <p class="feature__tag">Plato insignia</p>
+          <h3 class="feature__title">Birria <em style="font-style:normal; font-family:var(--f-display); font-weight:700; text-transform:uppercase; font-size:.4em; letter-spacing:.18em; color:var(--orange); display:block; margin-top:6px;">Grande · 180 gms</em></h3>
+          <p class="feature__text">Nuestra porción más generosa. Carnaza para los puristas, surtida para quien busca un poco de todo. Servida con consomé caliente, cebolla, cilantro y limón.</p>
+          <div class="feature__pricing">
+            <div class="feature__price-row">
+              <span class="lbl">Carnaza</span>
+              <span class="dots"></span>
+              <span class="pr">$239</span>
             </div>
-            <div class="menu-subitem">
-              <p class="menu-subitem__name">Champiñones</p>
-              <p class="menu-subitem__price">$50</p>
-            </div>
-            <div class="menu-subitem">
-              <p class="menu-subitem__name">Chorizo</p>
-              <p class="menu-subitem__price">$50</p>
-            </div>
-            <div class="menu-subitem">
-              <p class="menu-subitem__name">Birria</p>
-              <p class="menu-subitem__price">$65</p>
-            </div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Taco de Birria</p>
-            <p class="menu-item__desc">50 gms · Deshebrada en tortilla</p>
-          </div>
-          <p class="menu-item__price">$55</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Queso Fundido</p>
-            <p class="menu-item__desc">250 gms</p>
-          </div>
-          <div class="menu-subitems">
-            <div class="menu-subitem">
-              <p class="menu-subitem__name">Sencillo</p>
-              <p class="menu-subitem__price">$145</p>
-            </div>
-            <div class="menu-subitem">
-              <p class="menu-subitem__name">Champiñones</p>
-              <p class="menu-subitem__price">$165</p>
-            </div>
-            <div class="menu-subitem">
-              <p class="menu-subitem__name">Chorizo</p>
-              <p class="menu-subitem__price">$165</p>
-            </div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Panela</p>
-            <p class="menu-item__desc">250 gms · Dorada al comal</p>
-          </div>
-          <p class="menu-item__price">$169</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Consomé</p>
-            <p class="menu-item__desc">Caldo de birria bien servido</p>
-          </div>
-          <p class="menu-item__price">$45</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Carne Asada</p>
-            <p class="menu-item__desc">300 gms · Al carbón</p>
-          </div>
-          <div class="menu-subitems">
-            <div class="menu-subitem">
-              <p class="menu-subitem__name">Peinecillo</p>
-              <p class="menu-subitem__price">$230</p>
-            </div>
-            <div class="menu-subitem">
-              <p class="menu-subitem__name">Arrachera</p>
-              <p class="menu-subitem__price">$250</p>
+            <div class="feature__price-row">
+              <span class="lbl">Surtida</span>
+              <span class="dots"></span>
+              <span class="pr">$199</span>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- ENSALADAS -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Ensaladas</h2>
-      <div class="menu-items">
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Fresca</p>
-            <p class="menu-item__desc">150 gms · Jitomate, lechuga y cebolla con vinagreta de la casa</p>
+      <!-- Birria chica (lista) -->
+      <div class="items">
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Birria Chica</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">130 gms</span>
           </div>
-          <p class="menu-item__price">$110</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Pollo</p>
-            <p class="menu-item__desc">400 gms · Con jitomate cherry, pimiento, manzana, lechuga, zanahoria, panela y pechuga a la plancha</p>
+          <p class="item__desc">Una porción sensata para abrir la mesa o terminar el día con calma.</p>
+          <div class="item__variants">
+            <div class="variant">
+              <span class="variant__name">Carnaza</span>
+              <span class="variant__dots"></span>
+              <span class="variant__price">$195</span>
+            </div>
+            <div class="variant">
+              <span class="variant__name">Surtida</span>
+              <span class="variant__dots"></span>
+              <span class="variant__price">$175</span>
+            </div>
           </div>
-          <p class="menu-item__price">$210</p>
         </div>
       </div>
-    </div>
+    </article>
 
-    <!-- MENÚ INFANTIL -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Menú Infantil</h2>
-      <div class="menu-items">
-        <div class="menu-subcategory">
-          <p class="menu-subcategory__title">Paquetes</p>
-          <div class="menu-items">
-            <div class="menu-item">
-              <div class="menu-item__content">
-                <p class="menu-item__name">Nuggets de Pollo 6 Piezas</p>
-                <p class="menu-item__desc">120 gms · Con papas a la francesa. Incluye bebida chica</p>
-              </div>
-              <p class="menu-item__price">$125</p>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item__content">
-                <p class="menu-item__name">Hamburguesa c/Queso</p>
-                <p class="menu-item__desc">130 gms · Con papas a la francesa. Incluye bebida chica</p>
-              </div>
-              <p class="menu-item__price">$155</p>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item__content">
-                <p class="menu-item__name">Birria Infantil</p>
-                <p class="menu-item__desc">80 gms · Con una quesadilla. Incluye bebida chica</p>
-              </div>
-              <p class="menu-item__price">$155</p>
-            </div>
-          </div>
+    <!-- ─── CAP II · BOTANAS ───────────────────────────── -->
+    <article id="cap-botanas" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">II<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">Para empezar</p>
+          <h2 class="chapter__title">Botanas</h2>
+          <p class="chapter__note">Mientras llega el plato fuerte: cosas pequeñas hechas con la misma seriedad que las grandes.</p>
         </div>
-        <div class="menu-subcategory">
-          <p class="menu-subcategory__title">Extras</p>
-          <div class="menu-items">
-            <div class="menu-item">
-              <div class="menu-item__content">
-                <p class="menu-item__name">Papas a la Francesa</p>
-                <p class="menu-item__desc">200 gms</p>
-              </div>
-              <p class="menu-item__price">$92</p>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item__content">
-                <p class="menu-item__name">Nuggets 6 Piezas</p>
-                <p class="menu-item__desc">160 gms · Con papas + $15</p>
-              </div>
-              <p class="menu-item__price">$95</p>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item__content">
-                <p class="menu-item__name">Hamburguesa</p>
-                <p class="menu-item__desc">90 gms · Con papas + $15</p>
-              </div>
-              <p class="menu-item__price">$125</p>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item__content">
-                <p class="menu-item__name">Birria Infantil</p>
-                <p class="menu-item__desc">80 gms</p>
-              </div>
-              <p class="menu-item__price">$135</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      </header>
 
-    <!-- POSTRES -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Postres</h2>
-      <div class="menu-items">
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Jericalla</p>
-            <p class="menu-item__desc">150 gms · Postre tradicional tapatío</p>
-          </div>
-          <p class="menu-item__price">$55</p>
+      <!-- Feature: Costilla -->
+      <div class="feature feature--reverse">
+        <div class="feature__media">
+          <img src="assets/images/menu/costilla-cerdo.jpg" alt="Costilla de cerdo dorada" loading="lazy" />
+          <span class="feature__caption">Dorada al momento</span>
         </div>
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Flan</p>
-            <p class="menu-item__desc">100 gms · Receta de la casa con caramelo</p>
+        <div class="feature__body">
+          <p class="feature__tag">Recomendación</p>
+          <h3 class="feature__title">Costilla de Cerdo <em style="font-style:italic;">Dorada</em></h3>
+          <p class="feature__text">200 gramos de costilla dorada al momento, crujiente por fuera, jugosa al centro. La botana que pedimos de niños y seguimos pidiendo de adultos.</p>
+          <div class="feature__pricing">
+            <div class="feature__price-row">
+              <span class="lbl">Orden</span>
+              <span class="dots"></span>
+              <span class="pr">$189</span>
+            </div>
           </div>
-          <p class="menu-item__price">$55</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content">
-            <p class="menu-item__name">Helado</p>
-            <p class="menu-item__desc">Una bola de la casa para cerrar bien</p>
-          </div>
-          <p class="menu-item__price">$85</p>
         </div>
       </div>
-    </div>
+
+      <div class="items">
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Macho</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">$189</span>
+          </div>
+          <p class="item__desc">200 gms · Asado al carbón.</p>
+        </div>
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Surtida</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">$160</span>
+          </div>
+          <p class="item__desc">200 gms · Hígado, riñón y macho en la misma orden.</p>
+        </div>
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Botana Chica</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">$155</span>
+          </div>
+          <p class="item__desc">140 gms · Para abrir el apetito.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─── CAP III · ACOMPAÑAMIENTOS ──────────────────── -->
+    <article id="cap-acomp" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">III<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">A la mesa</p>
+          <h2 class="chapter__title">Acompañamientos</h2>
+          <p class="chapter__note">Lo que vuelve completa una mesa: tortillas recién hechas, queso fundido y cosas para compartir.</p>
+        </div>
+      </header>
+
+      <!-- Feature: Queso fundido -->
+      <div class="feature">
+        <div class="feature__media">
+          <img src="assets/images/menu/queso-fundido.jpg" alt="Queso fundido" loading="lazy" />
+          <span class="feature__caption">Para compartir</span>
+        </div>
+        <div class="feature__body">
+          <p class="feature__tag">Clásico de la mesa</p>
+          <h3 class="feature__title">Queso <em style="font-style:italic;">Fundido</em></h3>
+          <p class="feature__text">250 gramos de queso recién derretido, servido en su sartén. Sencillo o con champiñones o chorizo de la casa.</p>
+          <div class="feature__pricing">
+            <div class="feature__price-row">
+              <span class="lbl">Sencillo</span>
+              <span class="dots"></span>
+              <span class="pr">$145</span>
+            </div>
+            <div class="feature__price-row">
+              <span class="lbl">Con champiñones</span>
+              <span class="dots"></span>
+              <span class="pr">$165</span>
+            </div>
+            <div class="feature__price-row">
+              <span class="lbl">Con chorizo</span>
+              <span class="dots"></span>
+              <span class="pr">$165</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="items items--two">
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Frijoles</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">$29</span>
+          </div>
+          <p class="item__desc">50 gms · De la olla.</p>
+        </div>
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Guacamole</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">$105</span>
+          </div>
+          <p class="item__desc">200 gms · Aguacate fresco molcajeteado.</p>
+        </div>
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Taco de Birria</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">$55</span>
+          </div>
+          <p class="item__desc">50 gms · Deshebrada en tortilla recién hecha.</p>
+        </div>
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Panela</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">$169</span>
+          </div>
+          <p class="item__desc">250 gms · Dorada al comal.</p>
+        </div>
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Consomé</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">$45</span>
+          </div>
+          <p class="item__desc">Caldo de birria, bien servido.</p>
+        </div>
+      </div>
+
+      <!-- Quesadilla con variantes -->
+      <div class="items" style="margin-top:8px">
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Quesadilla</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">50 gms</span>
+          </div>
+          <p class="item__desc">Tortilla recién hecha, doblada al gusto.</p>
+          <div class="item__variants">
+            <div class="variant"><span class="variant__name">Sencilla</span><span class="variant__dots"></span><span class="variant__price">$45</span></div>
+            <div class="variant"><span class="variant__name">Champiñones</span><span class="variant__dots"></span><span class="variant__price">$50</span></div>
+            <div class="variant"><span class="variant__name">Chorizo</span><span class="variant__dots"></span><span class="variant__price">$50</span></div>
+            <div class="variant"><span class="variant__name">Birria</span><span class="variant__dots"></span><span class="variant__price">$65</span></div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Carne Asada</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">300 gms</span>
+          </div>
+          <p class="item__desc">Al carbón, dos cortes a elegir.</p>
+          <div class="item__variants">
+            <div class="variant"><span class="variant__name">Peinecillo</span><span class="variant__dots"></span><span class="variant__price">$230</span></div>
+            <div class="variant"><span class="variant__name">Arrachera</span><span class="variant__dots"></span><span class="variant__price">$250</span></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─── CAP IV · ENSALADAS ─────────────────────────── -->
+    <article id="cap-ensaladas" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">IV<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">En contraste</p>
+          <h2 class="chapter__title">Ensaladas</h2>
+          <p class="chapter__note">Frescas, ligeras, hechas para equilibrar.</p>
+        </div>
+      </header>
+
+      <div class="items">
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Fresca</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">$110</span>
+          </div>
+          <p class="item__desc">150 gms · Jitomate, lechuga y cebolla con vinagreta de la casa.</p>
+        </div>
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Pollo</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">$210</span>
+          </div>
+          <p class="item__desc">400 gms · Jitomate cherry, pimiento, manzana, lechuga, zanahoria, panela y pechuga a la plancha.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─── CAP V · INFANTIL ───────────────────────────── -->
+    <article id="cap-infantil" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">V<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">Para los más chicos</p>
+          <h2 class="chapter__title">Menú Infantil</h2>
+          <p class="chapter__note">Porciones pensadas para ellos, con la misma calidad de siempre.</p>
+        </div>
+      </header>
+
+      <div class="sub-cat">
+        <p class="sub-cat__title">Paquetes</p>
+        <div class="items items--two">
+          <div class="item">
+            <div class="item__head">
+              <h4 class="item__name">Nuggets de Pollo · 6 pzas</h4>
+              <span class="item__dots"></span>
+              <span class="item__price">$125</span>
+            </div>
+            <p class="item__desc">120 gms · Con papas a la francesa. Incluye bebida chica.</p>
+          </div>
+          <div class="item">
+            <div class="item__head">
+              <h4 class="item__name">Hamburguesa c/Queso</h4>
+              <span class="item__dots"></span>
+              <span class="item__price">$155</span>
+            </div>
+            <p class="item__desc">130 gms · Con papas a la francesa. Incluye bebida chica.</p>
+          </div>
+          <div class="item">
+            <div class="item__head">
+              <h4 class="item__name">Birria Infantil</h4>
+              <span class="item__dots"></span>
+              <span class="item__price">$155</span>
+            </div>
+            <p class="item__desc">80 gms · Con una quesadilla. Incluye bebida chica.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-cat">
+        <p class="sub-cat__title">Extras</p>
+        <div class="items items--two">
+          <div class="item">
+            <div class="item__head">
+              <h4 class="item__name">Papas a la Francesa</h4>
+              <span class="item__dots"></span>
+              <span class="item__price">$92</span>
+            </div>
+            <p class="item__desc">200 gms.</p>
+          </div>
+          <div class="item">
+            <div class="item__head">
+              <h4 class="item__name">Nuggets · 6 pzas</h4>
+              <span class="item__dots"></span>
+              <span class="item__price">$95</span>
+            </div>
+            <p class="item__desc">160 gms · Con papas + $15.</p>
+          </div>
+          <div class="item">
+            <div class="item__head">
+              <h4 class="item__name">Hamburguesa</h4>
+              <span class="item__dots"></span>
+              <span class="item__price">$125</span>
+            </div>
+            <p class="item__desc">90 gms · Con papas + $15.</p>
+          </div>
+          <div class="item">
+            <div class="item__head">
+              <h4 class="item__name">Birria Infantil</h4>
+              <span class="item__dots"></span>
+              <span class="item__price">$135</span>
+            </div>
+            <p class="item__desc">80 gms.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─── CAP VI · POSTRES ───────────────────────────── -->
+    <article id="cap-postres" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">VI<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">Para cerrar</p>
+          <h2 class="chapter__title">Postres</h2>
+          <p class="chapter__note">Tradición tapatía, hechos en casa.</p>
+        </div>
+      </header>
+
+      <div class="items items--two">
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Jericalla</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">$55</span>
+          </div>
+          <p class="item__desc">150 gms · Postre tradicional tapatío.</p>
+        </div>
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Flan</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">$55</span>
+          </div>
+          <p class="item__desc">100 gms · Receta de la casa con caramelo.</p>
+        </div>
+        <div class="item">
+          <div class="item__head">
+            <h4 class="item__name">Helado</h4>
+            <span class="item__dots"></span>
+            <span class="item__price">$85</span>
+          </div>
+          <p class="item__desc">Una bola de la casa para cerrar bien.</p>
+        </div>
+      </div>
+    </article>
 
   </section>
 
   <!-- ════════════════════════════════════════════════════════ -->
-  <!-- BEBIDAS SECTION -->
+  <!-- BEBIDAS -->
   <!-- ════════════════════════════════════════════════════════ -->
-  <section class="menu-section" data-panel="bebidas">
+  <section class="menu-section section--drinks" data-panel="bebidas">
+
+    <nav class="toc" aria-label="Tabla de contenidos">
+      <a href="#cap-aguas">I · Aguas</a>
+      <a href="#cap-limonada">II · Limonadas</a>
+      <a href="#cap-jugo">III · Jugos</a>
+      <a href="#cap-refrescos">IV · Refrescos</a>
+      <a href="#cap-cerveza">V · Cervezas</a>
+      <a href="#cap-cafe">VI · Café</a>
+      <a href="#cap-rusa">VII · Rusas</a>
+      <a href="#cap-michelada">VIII · Michelada</a>
+      <a href="#cap-clamato">IX · Clamato</a>
+    </nav>
 
     <!-- AGUA FRESCA -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Agua Fresca</h2>
-      <div class="menu-items">
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">500 ML</p></div>
-          <p class="menu-item__price">$48</p>
+    <article id="cap-aguas" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">I<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">Del día</p>
+          <h2 class="chapter__title">Agua Fresca</h2>
+          <p class="chapter__note">El sabor cambia con la temporada y con la fruta del mercado.</p>
         </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">1 Litro</p></div>
-          <p class="menu-item__price">$85</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Jarra</p></div>
-          <p class="menu-item__price">$230</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Agua Ciel</p></div>
-          <p class="menu-item__price">$40</p>
-        </div>
+      </header>
+      <div class="items items--two">
+        <div class="item"><div class="item__head"><h4 class="item__name">500 ml</h4><span class="item__dots"></span><span class="item__price">$48</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">1 Litro</h4><span class="item__dots"></span><span class="item__price">$85</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">Jarra</h4><span class="item__dots"></span><span class="item__price">$230</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">Agua Ciel</h4><span class="item__dots"></span><span class="item__price">$40</span></div></div>
       </div>
-    </div>
+    </article>
 
-    <!-- LIMONADA/NARANJADA -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Limonada / Naranjada</h2>
-      <div class="menu-items">
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">500 ML</p></div>
-          <p class="menu-item__price">$60</p>
+    <!-- LIMONADA / NARANJADA -->
+    <article id="cap-limonada" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">II<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">Cítricos</p>
+          <h2 class="chapter__title">Limonada &amp; Naranjada</h2>
         </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Jarra</p></div>
-          <p class="menu-item__price">$245</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Chocomilk</p></div>
-          <p class="menu-item__price">$49</p>
-        </div>
+      </header>
+      <div class="items items--two">
+        <div class="item"><div class="item__head"><h4 class="item__name">500 ml</h4><span class="item__dots"></span><span class="item__price">$60</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">Jarra</h4><span class="item__dots"></span><span class="item__price">$245</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">Chocomilk</h4><span class="item__dots"></span><span class="item__price">$49</span></div></div>
       </div>
-    </div>
+    </article>
 
     <!-- JUGO -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Jugo</h2>
-      <div class="menu-items">
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Naranja · Zanahoria · Mixto</p><p class="menu-item__desc">Recién exprimido</p></div>
-          <p class="menu-item__price">$55</p>
+    <article id="cap-jugo" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">III<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">Recién exprimido</p>
+          <h2 class="chapter__title">Jugo</h2>
+        </div>
+      </header>
+      <div class="items">
+        <div class="item">
+          <div class="item__head"><h4 class="item__name">Naranja · Zanahoria · Mixto</h4><span class="item__dots"></span><span class="item__price">$55</span></div>
+          <p class="item__desc">Recién exprimido a la orden.</p>
         </div>
       </div>
-    </div>
+    </article>
 
     <!-- REFRESCOS -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Refrescos</h2>
-      <div class="menu-items">
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">192 ML</p></div>
-          <p class="menu-item__price">$39</p>
+    <article id="cap-refrescos" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">IV<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">De la cava</p>
+          <h2 class="chapter__title">Refrescos</h2>
         </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">355 ML</p></div>
-          <p class="menu-item__price">$50</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">500 ML</p></div>
-          <p class="menu-item__price">$60</p>
-        </div>
+      </header>
+      <div class="items items--two">
+        <div class="item"><div class="item__head"><h4 class="item__name">192 ml</h4><span class="item__dots"></span><span class="item__price">$39</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">355 ml</h4><span class="item__dots"></span><span class="item__price">$50</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">500 ml</h4><span class="item__dots"></span><span class="item__price">$60</span></div></div>
       </div>
-    </div>
+    </article>
 
     <!-- CERVEZA -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Cerveza</h2>
-      <div class="menu-items">
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Premium</p><p class="menu-item__desc">Importada</p></div>
-          <p class="menu-item__price">$65</p>
+    <article id="cap-cerveza" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">V<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">Bien fría</p>
+          <h2 class="chapter__title">Cerveza</h2>
+          <p class="chapter__note">Compañera natural de la birria. Pregunte por la selección del día.</p>
         </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Nacional</p></div>
-          <p class="menu-item__price">$58</p>
+      </header>
+      <div class="items items--two">
+        <div class="item">
+          <div class="item__head"><h4 class="item__name">Premium</h4><span class="item__dots"></span><span class="item__price">$65</span></div>
+          <p class="item__desc">Importada.</p>
+        </div>
+        <div class="item">
+          <div class="item__head"><h4 class="item__name">Nacional</h4><span class="item__dots"></span><span class="item__price">$58</span></div>
         </div>
       </div>
-    </div>
+    </article>
 
     <!-- CAFÉ -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Café</h2>
-      <div class="menu-items">
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Olla</p><p class="menu-item__desc">Café de olla tradicional</p></div>
-          <p class="menu-item__price">$48</p>
+    <article id="cap-cafe" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">VI<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">A la hora del café</p>
+          <h2 class="chapter__title">Café</h2>
         </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Americano</p></div>
-          <p class="menu-item__price">$54</p>
+      </header>
+      <div class="items items--two">
+        <div class="item">
+          <div class="item__head"><h4 class="item__name">Olla</h4><span class="item__dots"></span><span class="item__price">$48</span></div>
+          <p class="item__desc">Café de olla tradicional, con piloncillo y canela.</p>
         </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Expresso</p></div>
-          <p class="menu-item__price">$60</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Capuchino</p></div>
-          <p class="menu-item__price">$87</p>
-        </div>
+        <div class="item"><div class="item__head"><h4 class="item__name">Americano</h4><span class="item__dots"></span><span class="item__price">$54</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">Expresso</h4><span class="item__dots"></span><span class="item__price">$60</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">Capuchino</h4><span class="item__dots"></span><span class="item__price">$87</span></div></div>
       </div>
-    </div>
+    </article>
 
     <!-- RUSA -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Rusa</h2>
-      <div class="menu-items">
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Refresco</p></div>
-          <p class="menu-item__price">$60</p>
+    <article id="cap-rusa" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">VII<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">Tradición tapatía</p>
+          <h2 class="chapter__title">Rusa</h2>
         </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Premium</p></div>
-          <p class="menu-item__price">$75</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Nacional</p></div>
-          <p class="menu-item__price">$69</p>
-        </div>
+      </header>
+      <div class="items items--two">
+        <div class="item"><div class="item__head"><h4 class="item__name">Refresco</h4><span class="item__dots"></span><span class="item__price">$60</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">Premium</h4><span class="item__dots"></span><span class="item__price">$75</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">Nacional</h4><span class="item__dots"></span><span class="item__price">$69</span></div></div>
       </div>
-    </div>
+    </article>
 
     <!-- MICHELADA -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Michelada</h2>
-      <div class="menu-items">
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Premium</p></div>
-          <p class="menu-item__price">$83</p>
+    <article id="cap-michelada" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">VIII<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">Con escarcha</p>
+          <h2 class="chapter__title">Michelada</h2>
         </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Nacional</p></div>
-          <p class="menu-item__price">$76</p>
-        </div>
+      </header>
+      <div class="items items--two">
+        <div class="item"><div class="item__head"><h4 class="item__name">Premium</h4><span class="item__dots"></span><span class="item__price">$83</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">Nacional</h4><span class="item__dots"></span><span class="item__price">$76</span></div></div>
       </div>
-    </div>
+    </article>
 
-    <!-- CLAMATO CERVEZA -->
-    <div class="menu-category">
-      <h2 class="menu-category__title">Clamato Cerveza</h2>
-      <div class="menu-items">
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Premium</p></div>
-          <p class="menu-item__price">$95</p>
+    <!-- CLAMATO -->
+    <article id="cap-clamato" class="chapter">
+      <header class="chapter__head">
+        <div class="chapter__roman">IX<small>Capítulo</small></div>
+        <div class="chapter__titles">
+          <p class="chapter__eyebrow">Para los conocedores</p>
+          <h2 class="chapter__title">Clamato &amp; Cerveza</h2>
         </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Nacional</p></div>
-          <p class="menu-item__price">$87</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Natural</p></div>
-          <p class="menu-item__price">$60</p>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Vaso para Rusa</p></div>
-          <p class="menu-item__price">$15</p>
-        </div>
+      </header>
+      <div class="items items--two">
+        <div class="item"><div class="item__head"><h4 class="item__name">Premium</h4><span class="item__dots"></span><span class="item__price">$95</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">Nacional</h4><span class="item__dots"></span><span class="item__price">$87</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">Natural</h4><span class="item__dots"></span><span class="item__price">$60</span></div></div>
+        <div class="item"><div class="item__head"><h4 class="item__name">Vaso para Rusa</h4><span class="item__dots"></span><span class="item__price">$15</span></div></div>
       </div>
-    </div>
+    </article>
 
   </section>
 
 </main>
+
+<!-- ─── EDITORIAL FOOTER ────────────────────────────────── -->
+<footer class="menu-footer">
+  <div class="menu-footer__inner">
+    <div>
+      <p class="menu-footer__mark">
+        <small>Birriería</small>
+        Cocula
+      </p>
+      <a href="index.html" class="menu-footer__back">← Volver al inicio</a>
+    </div>
+    <div class="menu-footer__meta">
+      <strong>La casa</strong>
+      Cocula, cuna del mariachi y de la birria. Receta de familia desde 1978, ahora en su mesa.
+      <br/><br/>
+      <strong>Reservaciones</strong>
+      <a href="tel:+523338232068" style="color:var(--orange)">+52 33 3823 2068</a>
+    </div>
+  </div>
+  <div class="menu-footer__rule"></div>
+  <div class="menu-footer__bottom">
+    <span>© Birriería Cocula · MMXXVI</span>
+    <span>Guadalajara · Jalisco · MX</span>
+  </div>
+</footer>
 
 <script>
 const tabButtons = document.querySelectorAll('.menu-tabs button');
@@ -1145,6 +1412,20 @@ tabButtons.forEach(button => {
     menuSections.forEach(section => section.classList.remove('is-active'));
     button.classList.add('is-active');
     document.querySelector(`[data-panel="${tabName}"]`).classList.add('is-active');
+    // scroll to top of menu
+    window.scrollTo({ top: document.querySelector('.menu-tabs-wrap').offsetTop - 80, behavior: 'smooth' });
+  });
+});
+
+// smooth scroll for TOC links accounting for sticky header
+document.querySelectorAll('.toc a').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    const offset = 140;
+    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior:'smooth' });
   });
 });
 </script>
