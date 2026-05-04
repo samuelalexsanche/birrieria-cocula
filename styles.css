@@ -377,37 +377,64 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
   background:var(--char); color:var(--cream-soft);
   padding:clamp(64px, 9vw, 120px) var(--pad);
 }
-.barra__inner{
-  max-width:var(--maxw); margin:0 auto;
-  display:grid; grid-template-columns:1fr 1.2fr; gap:clamp(40px, 6vw, 88px);
-  align-items:center;
+.barra__head{
+  max-width:var(--maxw); margin:0 auto 56px;
+  text-align:center;
 }
-.barra__type .eyebrow{color:var(--orange)}
-.barra__type h2{
+.barra__head .eyebrow{color:var(--orange)}
+.barra__head h2{
   font-family:var(--f-display); font-weight:700;
   font-size:clamp(34px, 5vw, 64px); text-transform:uppercase; letter-spacing:.02em;
   line-height:1.05; margin:14px 0 24px;
 }
-.barra__type h2 em{
+.barra__head h2 em{
   font-family:var(--f-accent); font-style:italic; font-weight:400;
   color:var(--orange); text-transform:none; letter-spacing:0;
   display:block;
 }
-.barra__type p{color:rgba(248,239,212,.85); font-size:16px; line-height:1.7; margin:0 0 16px}
-.barra__type .quote{
+.barra__head .quote{
   font-family:var(--f-accent); font-style:italic;
-  font-size:20px; color:var(--cream-soft); margin-top:24px;
-  padding-left:18px; border-left:2px solid var(--orange);
+  font-size:clamp(18px, 2vw, 22px); color:var(--cream-soft);
+  margin:24px auto 18px; max-width:48ch;
 }
-.barra__gallery{
-  display:grid; grid-template-columns:1fr 1fr; gap:14px;
+.barra__intro{
+  color:rgba(248,239,212,.78); font-size:15px; line-height:1.7;
+  max-width:60ch; margin:0 auto;
 }
-.barra__gallery img{
-  width:100%; aspect-ratio:1; object-fit:cover; border-radius:4px;
+.barra__cards{
+  max-width:var(--maxw); margin:0 auto;
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
 }
-.barra__gallery img:nth-child(1){grid-row:span 2; aspect-ratio:1/2}
-@media (max-width:600px){
-  .barra__gallery img:nth-child(1){grid-row:auto; aspect-ratio:1}
+.drink{
+  margin:0; display:flex; flex-direction:column; gap:16px;
+  transition:transform .35s ease;
+}
+.drink:hover{ transform:translateY(-4px) }
+.drink__media{
+  position:relative; overflow:hidden; border-radius:4px;
+  aspect-ratio:4/5; background:rgba(248,239,212,.05);
+}
+.drink__media img{
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .8s ease;
+}
+.drink:hover .drink__media img{ transform:scale(1.05) }
+.drink figcaption{ padding:0 4px }
+.drink figcaption h3{
+  font-family:var(--f-accent); font-style:italic; font-weight:500;
+  font-size:24px; color:var(--cream-soft);
+  margin:0 0 6px; letter-spacing:0;
+}
+.drink figcaption p{
+  font-family:var(--f-display); font-size:13px; line-height:1.5;
+  color:rgba(248,239,212,.65); margin:0;
+}
+@media (max-width:880px){
+  .barra__cards{ grid-template-columns:repeat(2, 1fr); gap:24px }
+}
+@media (max-width:560px){
+  .barra__cards{ grid-template-columns:1fr; gap:32px }
+  .drink__media{ aspect-ratio:1/1 }
 }
 
 /* ─── A TU SERVICIO (contacto cards) ──────────────────── */
@@ -546,7 +573,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
   .hero h1{font-size:clamp(32px, 8vw, 56px)}
   .hero__logo{width:108px; height:108px}
 
-  .mucho__inner, .historia__inner, .barra__inner{grid-template-columns:1fr}
+  .mucho__inner, .historia__inner{grid-template-columns:1fr}
   .mucho__img{min-height:340px}
   .mucho__text{padding:48px 28px 56px}
   .historia__media img:nth-child(1){margin-top:0}
