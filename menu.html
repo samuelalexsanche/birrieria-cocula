@@ -23,6 +23,7 @@
   --orange: #E8851E;
   --orange-deep: #C56A0E;
   --orange-light: rgba(232,133,30,.08);
+  --orange-lighter: rgba(232,133,30,.04);
   --line: rgba(36,38,47,.12);
   --line-light: rgba(36,38,47,.06);
   --maxw: 1240px;
@@ -44,7 +45,44 @@ body{
   line-height:1.6;
   overflow-x:hidden;
   min-height:100vh;
+  position:relative;
 }
+
+/* ─── BACKGROUND DECORATIONS ──────────────────────────── */
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(232,133,30,.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(232,133,30,.06) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(232,133,30,.04) 0%, transparent 40%);
+  pointer-events:none;
+  z-index:0;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(36,38,47,.01) 2px,
+      rgba(36,38,47,.01) 4px
+    );
+  pointer-events:none;
+  z-index:0;
+}
+
 img{max-width:100%; display:block}
 a{color:inherit; text-decoration:none}
 
@@ -80,6 +118,7 @@ a{color:inherit; text-decoration:none}
   border-radius:50%;
   object-fit:cover;
   background:var(--cream-soft);
+  border:2px solid var(--orange);
 }
 
 .menu-header__brand span{
@@ -103,10 +142,27 @@ a{color:inherit; text-decoration:none}
   border:none;
   cursor:pointer;
   transition:all .25s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.menu-header__back::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:var(--orange-deep);
+  transition:left .3s ease;
+  z-index:-1;
+}
+
+.menu-header__back:hover::before{
+  left:0;
 }
 
 .menu-header__back:hover{
-  background:var(--orange-deep);
   transform:translateY(-2px);
 }
 
@@ -116,24 +172,38 @@ a{color:inherit; text-decoration:none}
   text-align:center;
   margin-top:0;
   position:relative;
-  overflow:hidden;
+  overflow:visible;
 }
 
 .menu-hero::before{
   content:"";
   position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  background:radial-gradient(circle at 20% 50%, rgba(232,133,30,.05) 0%, transparent 50%),
-             radial-gradient(circle at 80% 80%, rgba(232,133,30,.03) 0%, transparent 50%);
-  pointer-events:none;
+  top:-40%;
+  left:-20%;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle, rgba(232,133,30,.15) 0%, transparent 70%);
+  border-radius:50%;
+  filter:blur(40px);
+  z-index:0;
+}
+
+.menu-hero::after{
+  content:"";
+  position:absolute;
+  bottom:-30%;
+  right:-10%;
+  width:400px;
+  height:400px;
+  background:radial-gradient(circle, rgba(232,133,30,.12) 0%, transparent 70%);
+  border-radius:50%;
+  filter:blur(40px);
+  z-index:0;
 }
 
 .menu-hero > *{
   position:relative;
-  z-index:1;
+  z-index:2;
 }
 
 .menu-hero__title{
@@ -145,6 +215,19 @@ a{color:inherit; text-decoration:none}
   color:var(--char);
   margin:0 0 16px;
   line-height:1.1;
+  position:relative;
+  display:inline-block;
+}
+
+.menu-hero__title::after{
+  content:"";
+  position:absolute;
+  bottom:-8px;
+  left:50%;
+  transform:translateX(-50%);
+  width:80px;
+  height:3px;
+  background:linear-gradient(90deg, transparent, var(--orange), transparent);
 }
 
 .menu-hero__subtitle{
@@ -153,7 +236,7 @@ a{color:inherit; text-decoration:none}
   font-weight:400;
   font-size:clamp(28px, 4vw, 48px);
   color:var(--orange);
-  margin:0;
+  margin:20px 0 0;
   line-height:1.2;
 }
 
@@ -173,6 +256,19 @@ a{color:inherit; text-decoration:none}
   justify-content:center;
   flex-wrap:wrap;
   margin-bottom:72px;
+  position:relative;
+  z-index:10;
+}
+
+.menu-tabs::before{
+  content:"";
+  position:absolute;
+  bottom:-20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:120px;
+  height:2px;
+  background:linear-gradient(90deg, transparent, var(--orange), transparent);
 }
 
 .menu-tabs button{
@@ -184,25 +280,37 @@ a{color:inherit; text-decoration:none}
   padding:16px 28px;
   background:rgba(255,255,255,.4);
   color:var(--char-soft);
-  border:1.5px solid transparent;
+  border:1.5px solid rgba(232,133,30,.2);
   cursor:pointer;
   position:relative;
   transition:all .3s ease;
-  border-radius:3px;
+  border-radius:4px;
   backdrop-filter:blur(10px);
+}
+
+.menu-tabs button::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:4px;
+  background:linear-gradient(135deg, rgba(232,133,30,.1) 0%, transparent 100%);
+  opacity:0;
+  transition:opacity .3s ease;
 }
 
 .menu-tabs button:hover{
   background:rgba(255,255,255,.6);
   color:var(--char);
+  border-color:var(--orange);
+  transform:translateY(-2px);
 }
 
 .menu-tabs button.is-active{
-  background:var(--orange);
+  background:linear-gradient(135deg, var(--orange), var(--orange-deep));
   color:#fff;
   border-color:var(--orange-deep);
-  transform:translateY(-2px);
-  box-shadow:0 8px 24px rgba(232,133,30,.25);
+  transform:translateY(-3px);
+  box-shadow:0 12px 32px rgba(232,133,30,.35);
 }
 
 /* ─── MENU SECTIONS ────────────────────────────────────── */
@@ -222,17 +330,42 @@ a{color:inherit; text-decoration:none}
 
 .menu-category{
   margin-bottom:64px;
-  background:rgba(255,255,255,.5);
-  border-radius:8px;
-  padding:40px;
+  background:rgba(255,255,255,.55);
+  border-radius:12px;
+  padding:48px;
   backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.3);
+  border:1px solid rgba(255,255,255,.4);
   transition:all .3s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.menu-category::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:4px;
+  background:linear-gradient(90deg, var(--orange), transparent);
+}
+
+.menu-category::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  right:0;
+  width:200px;
+  height:200px;
+  background:radial-gradient(circle, var(--orange-lighter) 0%, transparent 70%);
+  border-radius:50%;
+  pointer-events:none;
 }
 
 .menu-category:hover{
-  background:rgba(255,255,255,.6);
-  box-shadow:0 12px 40px rgba(0,0,0,.08);
+  background:rgba(255,255,255,.7);
+  box-shadow:0 16px 48px rgba(0,0,0,.1);
+  transform:translateY(-4px);
 }
 
 .menu-category__title{
@@ -246,21 +379,23 @@ a{color:inherit; text-decoration:none}
   padding-bottom:16px;
   border-bottom:2px solid var(--orange);
   position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
 .menu-category__title::before{
-  content:"";
-  position:absolute;
-  bottom:-2px;
-  left:0;
-  width:48px;
-  height:2px;
-  background:var(--orange);
+  content:"◆";
+  color:var(--orange);
+  font-size:14px;
 }
 
 .menu-items{
   display:grid;
   gap:28px;
+  position:relative;
+  z-index:2;
 }
 
 .menu-item{
@@ -268,18 +403,17 @@ a{color:inherit; text-decoration:none}
   justify-content:space-between;
   align-items:flex-start;
   gap:24px;
-  padding:20px 0;
-  border-bottom:1px solid var(--line-light);
+  padding:24px;
+  border-left:3px solid var(--orange-lighter);
+  border-radius:4px;
+  background:rgba(232,133,30,.02);
   transition:all .25s ease;
 }
 
-.menu-item:last-child{
-  border-bottom:none;
-  padding-bottom:0;
-}
-
-.menu-item:hover .menu-item__name{
-  color:var(--orange);
+.menu-item:hover{
+  background:rgba(232,133,30,.06);
+  border-left-color:var(--orange);
+  padding-left:28px;
 }
 
 .menu-item__content{
@@ -298,6 +432,10 @@ a{color:inherit; text-decoration:none}
   transition:color .25s ease;
 }
 
+.menu-item:hover .menu-item__name{
+  color:var(--orange);
+}
+
 .menu-item__desc{
   font-family:var(--f-body);
   font-weight:400;
@@ -312,13 +450,14 @@ a{color:inherit; text-decoration:none}
   font-family:var(--f-display);
   font-weight:700;
   font-size:16px;
-  color:var(--orange);
+  color:#fff;
   white-space:nowrap;
   flex-shrink:0;
-  padding:2px 16px;
-  background:var(--orange-light);
-  border-radius:4px;
+  padding:8px 18px;
+  background:linear-gradient(135deg, var(--orange), var(--orange-deep));
+  border-radius:6px;
   letter-spacing:.02em;
+  box-shadow:0 4px 12px rgba(232,133,30,.3);
 }
 
 /* ─── SUBITEMS ──────────────────────────────────────────── */
@@ -326,7 +465,7 @@ a{color:inherit; text-decoration:none}
   margin-left:0;
   margin-top:16px;
   padding-left:20px;
-  border-left:2px solid var(--orange);
+  border-left:3px solid var(--orange);
   display:grid;
   gap:12px;
 }
@@ -336,6 +475,12 @@ a{color:inherit; text-decoration:none}
   justify-content:space-between;
   align-items:center;
   gap:16px;
+  padding:8px 0;
+  border-bottom:1px dashed rgba(232,133,30,.2);
+}
+
+.menu-subitem:last-child{
+  border-bottom:none;
 }
 
 .menu-subitem__name{
@@ -352,13 +497,18 @@ a{color:inherit; text-decoration:none}
   font-size:14px;
   color:var(--orange);
   white-space:nowrap;
+  background:rgba(232,133,30,.1);
+  padding:4px 10px;
+  border-radius:3px;
 }
 
 /* ─── SUBCATEGORY ────────────────────────────────────────── */
 .menu-subcategory{
   margin:32px 0 0;
-  padding:32px 0 0;
-  border-top:1px solid var(--line-light);
+  padding:28px;
+  border:1px dashed var(--line);
+  border-radius:8px;
+  background:rgba(232,133,30,.02);
 }
 
 .menu-subcategory__title{
@@ -370,7 +520,13 @@ a{color:inherit; text-decoration:none}
   color:var(--orange);
   margin:0 0 20px;
   padding-bottom:8px;
-  border-bottom:1px solid var(--line);
+  border-bottom:2px dashed var(--orange);
+  position:relative;
+}
+
+.menu-subcategory__title::before{
+  content:"✦ ";
+  margin-right:6px;
 }
 
 /* ─── RESPONSIVE ──────────────────────────────────────── */
@@ -378,6 +534,11 @@ a{color:inherit; text-decoration:none}
   .menu-tabs{
     gap:10px;
     margin-bottom:48px;
+  }
+
+  .menu-tabs::before{
+    bottom:-16px;
+    width:80px;
   }
 
   .menu-tabs button{
@@ -390,7 +551,7 @@ a{color:inherit; text-decoration:none}
   }
 
   .menu-category{
-    padding:28px;
+    padding:32px;
     margin-bottom:48px;
   }
 
@@ -402,11 +563,11 @@ a{color:inherit; text-decoration:none}
     flex-direction:column;
     align-items:flex-start;
     gap:8px;
-    padding:16px 0;
+    padding:18px;
   }
 
   .menu-item__price{
-    padding:4px 12px;
+    padding:6px 14px;
     font-size:15px;
   }
 
@@ -421,33 +582,42 @@ a{color:inherit; text-decoration:none}
     margin-bottom:12px;
   }
 
+  .menu-hero__title::after{
+    width:60px;
+  }
+
   .menu-hero__subtitle{
     font-size:clamp(20px, 3vw, 32px);
+    margin-top:16px;
   }
 
   .menu-category{
     padding:20px;
     margin-bottom:36px;
-    border-radius:6px;
+    border-radius:8px;
   }
 
   .menu-category__title{
     font-size:18px;
-    margin-bottom:24px;
+    margin-bottom:20px;
   }
 
   .menu-items{
-    gap:18px;
+    gap:16px;
+  }
+
+  .menu-item{
+    padding:14px;
   }
 
   .menu-subitems{
     margin-left:0;
-    padding-left:16px;
+    padding-left:14px;
   }
 
   .menu-subcategory{
-    margin-top:24px;
-    padding-top:24px;
+    margin:24px 0 0;
+    padding:20px;
   }
 }
 </style>
@@ -474,8 +644,8 @@ a{color:inherit; text-decoration:none}
 
   <!-- TABS -->
   <nav class="menu-tabs" aria-label="Categorías del menú">
-    <button class="is-active" data-tab="comida">Comida</button>
-    <button data-tab="bebidas">Bebidas</button>
+    <button class="is-active" data-tab="comida">🍽️ Comida</button>
+    <button data-tab="bebidas">🍹 Bebidas</button>
   </nav>
 
   <!-- ════════════════════════════════════════════════════════ -->
@@ -490,7 +660,7 @@ a{color:inherit; text-decoration:none}
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Grande</p>
-            <p class="menu-item__desc">180 gms</p>
+            <p class="menu-item__desc">180 gms · Especialidad de la casa</p>
           </div>
           <div class="menu-subitems">
             <div class="menu-subitem">
@@ -529,14 +699,14 @@ a{color:inherit; text-decoration:none}
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Costilla de Cerdo Dorada</p>
-            <p class="menu-item__desc">200 gms</p>
+            <p class="menu-item__desc">200 gms · Dorada al momento</p>
           </div>
           <p class="menu-item__price">$189</p>
         </div>
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Macho</p>
-            <p class="menu-item__desc">200 gms</p>
+            <p class="menu-item__desc">200 gms · Asado al carbón</p>
           </div>
           <p class="menu-item__price">$189</p>
         </div>
@@ -550,7 +720,7 @@ a{color:inherit; text-decoration:none}
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Botana Chica</p>
-            <p class="menu-item__desc">140 gms</p>
+            <p class="menu-item__desc">140 gms · Para abrir el apetito</p>
           </div>
           <p class="menu-item__price">$155</p>
         </div>
@@ -571,14 +741,14 @@ a{color:inherit; text-decoration:none}
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Guacamole</p>
-            <p class="menu-item__desc">200 gms</p>
+            <p class="menu-item__desc">200 gms · Aguacate fresco</p>
           </div>
           <p class="menu-item__price">$105</p>
         </div>
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Quesadilla</p>
-            <p class="menu-item__desc">50 gms</p>
+            <p class="menu-item__desc">50 gms · Tortilla recién hecha</p>
           </div>
           <div class="menu-subitems">
             <div class="menu-subitem">
@@ -602,7 +772,7 @@ a{color:inherit; text-decoration:none}
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Taco de Birria</p>
-            <p class="menu-item__desc">50 gms</p>
+            <p class="menu-item__desc">50 gms · Deshebrada en tortilla</p>
           </div>
           <p class="menu-item__price">$55</p>
         </div>
@@ -629,20 +799,21 @@ a{color:inherit; text-decoration:none}
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Panela</p>
-            <p class="menu-item__desc">250 gms</p>
+            <p class="menu-item__desc">250 gms · Dorada al comal</p>
           </div>
           <p class="menu-item__price">$169</p>
         </div>
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Consomé</p>
+            <p class="menu-item__desc">Caldo de birria bien servido</p>
           </div>
           <p class="menu-item__price">$45</p>
         </div>
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Carne Asada</p>
-            <p class="menu-item__desc">300 gms</p>
+            <p class="menu-item__desc">300 gms · Al carbón</p>
           </div>
           <div class="menu-subitems">
             <div class="menu-subitem">
@@ -665,14 +836,14 @@ a{color:inherit; text-decoration:none}
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Fresca</p>
-            <p class="menu-item__desc">150 gms · Jitomate, lechuga y cebolla</p>
+            <p class="menu-item__desc">150 gms · Jitomate, lechuga y cebolla con vinagreta de la casa</p>
           </div>
           <p class="menu-item__price">$110</p>
         </div>
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Pollo</p>
-            <p class="menu-item__desc">400 gms · Jitomate cherry, pimiento, manzana, lechuga, zanahoria, trocitos de panela y pechuga a la plancha</p>
+            <p class="menu-item__desc">400 gms · Con jitomate cherry, pimiento, manzana, lechuga, zanahoria, panela y pechuga a la plancha</p>
           </div>
           <p class="menu-item__price">$210</p>
         </div>
@@ -752,20 +923,21 @@ a{color:inherit; text-decoration:none}
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Jericalla</p>
-            <p class="menu-item__desc">150 gms</p>
+            <p class="menu-item__desc">150 gms · Postre tradicional tapatío</p>
           </div>
           <p class="menu-item__price">$55</p>
         </div>
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Flan</p>
-            <p class="menu-item__desc">100 gms</p>
+            <p class="menu-item__desc">100 gms · Receta de la casa con caramelo</p>
           </div>
           <p class="menu-item__price">$55</p>
         </div>
         <div class="menu-item">
           <div class="menu-item__content">
             <p class="menu-item__name">Helado</p>
+            <p class="menu-item__desc">Una bola de la casa para cerrar bien</p>
           </div>
           <p class="menu-item__price">$85</p>
         </div>
@@ -826,7 +998,7 @@ a{color:inherit; text-decoration:none}
       <h2 class="menu-category__title">Jugo</h2>
       <div class="menu-items">
         <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Naranja · Zanahoria · Mixto</p></div>
+          <div class="menu-item__content"><p class="menu-item__name">Naranja · Zanahoria · Mixto</p><p class="menu-item__desc">Recién exprimido</p></div>
           <p class="menu-item__price">$55</p>
         </div>
       </div>
@@ -856,7 +1028,7 @@ a{color:inherit; text-decoration:none}
       <h2 class="menu-category__title">Cerveza</h2>
       <div class="menu-items">
         <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Premium</p></div>
+          <div class="menu-item__content"><p class="menu-item__name">Premium</p><p class="menu-item__desc">Importada</p></div>
           <p class="menu-item__price">$65</p>
         </div>
         <div class="menu-item">
@@ -871,7 +1043,7 @@ a{color:inherit; text-decoration:none}
       <h2 class="menu-category__title">Café</h2>
       <div class="menu-items">
         <div class="menu-item">
-          <div class="menu-item__content"><p class="menu-item__name">Olla</p></div>
+          <div class="menu-item__content"><p class="menu-item__name">Olla</p><p class="menu-item__desc">Café de olla tradicional</p></div>
           <p class="menu-item__price">$48</p>
         </div>
         <div class="menu-item">
