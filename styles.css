@@ -97,22 +97,11 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 }
 .hero__slide{
   position:absolute; inset:0;
-  background-color:var(--char);
-  opacity:0;
-  animation:heroFade 24s infinite;
-}
-.hero__slide__bg{
-  position:absolute; inset:0;
   background-size:cover;
   background-position:center;
-  filter:blur(34px) brightness(.55) saturate(1.1);
-  transform:scale(1.1);
-}
-.hero__slide__fg{
-  position:absolute; inset:0;
-  background-size:contain;
-  background-position:center;
   background-repeat:no-repeat;
+  opacity:0;
+  animation:heroFade 24s infinite;
 }
 .hero__slide::after{
   content:""; position:absolute; inset:0;
