@@ -450,7 +450,9 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
   display:flex; align-items:center; justify-content:center;
   background:var(--orange); color:#fff;
   border-radius:50%;
-  font-family:var(--f-accent); font-style:italic; font-size:24px;
+  font-family:var(--f-display); font-style:normal; font-weight:600; font-size:22px;
+  line-height:1;
+  text-align:center;
 }
 .card h3{
   font-family:var(--f-display); font-weight:700; font-size:13px;
