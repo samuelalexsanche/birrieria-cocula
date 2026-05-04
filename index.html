@@ -119,55 +119,84 @@
 <!-- ─── BARRA (cocteles) ────────────────────────────────── -->
 <section id="barra" class="barra">
   <div class="barra__head">
-    <p class="eyebrow">La barra</p>
-    <h2>Bebidas <em>de la casa.</em></h2>
-    <p class="quote">«Una buena birria se acompaña de una buena bebida.»</p>
-    <p class="barra__intro">Mezcalitas de fruta de temporada, mojitos refrescantes, cazuelas tradicionales, carajillos, clericots y paloma fría. Una barra completa para acompañar cada platillo.</p>
+    <div class="barra__head-left">
+      <p class="eyebrow">La barra</p>
+      <h2>Bebidas <em>de la casa.</em></h2>
+    </div>
+    <div class="barra__head-right">
+      <p class="quote"><span class="quote__mark">«</span>Una buena birria se acompaña de una buena bebida.<span class="quote__mark">»</span></p>
+      <p class="barra__intro">Mezcalitas de fruta de temporada, mojitos refrescantes, cazuelas tradicionales, carajillos, clericots y paloma fría. Una barra completa para acompañar cada platillo.</p>
+      <div class="barra__meta">
+        <span>Carta</span>
+        <span class="barra__meta-line"></span>
+        <span>06 bebidas</span>
+      </div>
+    </div>
   </div>
-  <div class="barra__cards">
-    <figure class="drink">
-      <div class="drink__media"><img src="assets/images/mezcalitas/mezcal-3.jpg" alt="Mezcalitas" loading="lazy" /></div>
-      <figcaption>
-        <h3>Mezcalitas</h3>
-        <p>Fruta de temporada y agave joven.</p>
-      </figcaption>
-    </figure>
-    <figure class="drink">
+
+  <!-- Signature drink -->
+  <article class="drink-feature">
+    <div class="drink-feature__media">
+      <img src="assets/images/mezcalitas/mezcal-3.jpg" alt="Mezcalitas" loading="lazy" />
+      <span class="drink-feature__badge">Signature</span>
+    </div>
+    <div class="drink-feature__body">
+      <span class="drink__num">01 — La casa</span>
+      <h3>Mezcalitas</h3>
+      <p class="drink-feature__desc">Fruta de temporada y agave joven. Servidas con sal de gusano y un toque cítrico, son el alma de nuestra barra y la mejor compañía para una tarde sin prisa.</p>
+      <ul class="drink-feature__notes">
+        <li><span>Base</span>Mezcal joven</li>
+        <li><span>Fruta</span>De temporada</li>
+        <li><span>Servir</span>Con sal de gusano</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- Resto de la carta -->
+  <ol class="barra__cards">
+    <li class="drink">
       <div class="drink__media"><img src="assets/images/barra/mojito.jpg" alt="Mojito" loading="lazy" /></div>
-      <figcaption>
+      <div class="drink__body">
+        <span class="drink__num">02</span>
         <h3>Mojito</h3>
         <p>Hierbabuena fresca, lima y ron blanco.</p>
-      </figcaption>
-    </figure>
-    <figure class="drink">
+      </div>
+    </li>
+    <li class="drink">
       <div class="drink__media"><img src="assets/images/barra/cazuela.jpg" alt="Cazuela" loading="lazy" /></div>
-      <figcaption>
+      <div class="drink__body">
+        <span class="drink__num">03</span>
         <h3>Cazuela</h3>
         <p>Tequila, cítricos y refresco de toronja.</p>
-      </figcaption>
-    </figure>
-    <figure class="drink">
+      </div>
+    </li>
+    <li class="drink">
       <div class="drink__media"><img src="assets/images/barra/carajillo.jpg" alt="Carajillo" loading="lazy" /></div>
-      <figcaption>
+      <div class="drink__body">
+        <span class="drink__num">04</span>
         <h3>Carajillo</h3>
         <p>Espresso recién hecho y licor 43.</p>
-      </figcaption>
-    </figure>
-    <figure class="drink">
+      </div>
+    </li>
+    <li class="drink">
       <div class="drink__media"><img src="assets/images/barra/clericot.jpg" alt="Clericot" loading="lazy" /></div>
-      <figcaption>
+      <div class="drink__body">
+        <span class="drink__num">05</span>
         <h3>Clericot</h3>
         <p>Vino tinto con frutas de la temporada.</p>
-      </figcaption>
-    </figure>
-    <figure class="drink">
+      </div>
+    </li>
+    <li class="drink">
       <div class="drink__media"><img src="assets/images/barra/paloma.jpg" alt="Paloma" loading="lazy" /></div>
-      <figcaption>
+      <div class="drink__body">
+        <span class="drink__num">06</span>
         <h3>Paloma</h3>
         <p>Tequila, toronja, sal y mucho hielo.</p>
-      </figcaption>
-    </figure>
-  </div>
+      </div>
+    </li>
+  </ol>
+
+  <p class="barra__foot">Servimos hasta media hora antes del cierre · Pregunta por la mezcalita del día</p>
 </section>
 
 <!-- ─── HISTORIA ────────────────────────────────────────── -->
