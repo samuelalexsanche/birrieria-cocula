@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Menú · Birriería Cocula</title>
-<meta name="description" content="Menú completo de Birriería Cocula · Platillos, bebidas y paquetes" />
+<meta name="description" content="Menú completo de Birriería Cocula · Birria, botanas, acompañamientos, ensaladas, menú infantil, postres y bebidas" />
 <meta name="theme-color" content="#24262F" />
 <link rel="icon" type="image/png" href="assets/images/brand/logo.png" />
 
@@ -12,120 +12,338 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css" />
 <style>
-.menu-page {
-  min-height: 100vh;
-  background: var(--cream-soft);
+:root{
+  --cream: #F2E5C2;
+  --cream-deep: #E9D69E;
+  --cream-soft: #F8EFD4;
+  --char: #24262F;
+  --char-soft: #3A3D49;
+  --char-mute: #6B6E78;
+  --orange: #E8851E;
+  --orange-deep: #C56A0E;
+  --line: rgba(36,38,47,.12);
+  --maxw: 1240px;
+  --pad: clamp(20px, 4vw, 56px);
+  --f-display: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+  --f-body: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+  --f-accent: 'Fraunces', Georgia, serif;
 }
 
-.menu-page__header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 14px var(--pad);
-  background: color-mix(in srgb, var(--char) 92%, transparent);
-  color: var(--cream-soft);
-  backdrop-filter: saturate(140%) blur(8px);
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth; -webkit-font-smoothing:antialiased}
+body{
+  background:var(--cream-soft);
+  color:var(--char);
+  font-family:var(--f-body);
+  font-weight:400;
+  font-size:15px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{max-width:100%; display:block}
+a{color:inherit; text-decoration:none}
+
+/* ─── HEADER ──────────────────────────────────────────── */
+.menu-header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:14px var(--pad);
+  background:color-mix(in srgb, var(--char) 92%, transparent);
+  color:var(--cream-soft);
+  backdrop-filter:saturate(140%) blur(8px);
 }
 
-.menu-page__brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: inherit;
+.menu-header__brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:inherit;
 }
 
-.menu-page__brand img {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  object-fit: cover;
-  background: var(--cream-soft);
+.menu-header__brand img{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  object-fit:cover;
+  background:var(--cream-soft);
 }
 
-.menu-page__brand span {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+.menu-header__brand span{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
 }
 
-.menu-page__back {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  padding: 12px 22px;
-  background: var(--orange);
-  color: #fff;
-  border-radius: 2px;
-  transition: background 0.25s ease;
+.menu-header__back{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  padding:12px 22px;
+  background:var(--orange);
+  color:#fff;
+  border-radius:2px;
+  transition:background .25s ease;
 }
 
-.menu-page__back:hover {
-  background: var(--orange-deep);
+.menu-header__back:hover{
+  background:var(--orange-deep);
 }
 
-.menu-page__container {
-  padding-top: 80px;
-  max-width: 1240px;
-  margin: 0 auto;
+/* ─── MENU PAGE ────────────────────────────────────────── */
+.menu-page{
+  padding-top:80px;
+  min-height:100vh;
 }
 
-.menu-page__section {
-  padding: clamp(40px, 6vw, 80px) var(--pad);
+.menu-container{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:60px var(--pad);
 }
 
-.menu-page__title {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: clamp(28px, 5vw, 48px);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--char);
-  margin: 0 0 32px;
-  text-align: center;
+.menu-title{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:clamp(36px, 6vw, 64px);
+  letter-spacing:.02em;
+  text-transform:uppercase;
+  color:var(--char);
+  margin:0 0 12px;
+  text-align:center;
 }
 
-.menu-page__title em {
-  font-family: var(--f-accent);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--orange);
-  text-transform: none;
-  display: block;
-  font-size: 0.9em;
-  margin-top: 8px;
+.menu-subtitle{
+  font-family:var(--f-accent);
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(24px, 3vw, 40px);
+  color:var(--orange);
+  margin:0 0 48px;
+  text-align:center;
 }
 
-.menu-page__image {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  display: block;
-  border-radius: 4px;
-  box-shadow: 0 10px 40px rgba(36, 38, 47, 0.15);
+/* ─── TABS ─────────────────────────────────────────────── */
+.menu-tabs{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:56px;
+  border-bottom:2px solid var(--line);
+  padding-bottom:24px;
 }
 
-@media (max-width: 768px) {
-  .menu-page__header {
-    flex-direction: column;
-    gap: 12px;
+.menu-tabs button{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  padding:12px 20px;
+  background:transparent;
+  color:var(--char-soft);
+  border:none;
+  cursor:pointer;
+  position:relative;
+  transition:color .25s ease;
+}
+
+.menu-tabs button:hover{color:var(--orange)}
+
+.menu-tabs button.is-active{
+  color:var(--char);
+  font-weight:700;
+}
+
+.menu-tabs button.is-active::after{
+  content:"";
+  position:absolute;
+  bottom:-26px;
+  left:0;
+  right:0;
+  height:2px;
+  background:var(--orange);
+}
+
+/* ─── MENU SECTIONS ────────────────────────────────────── */
+.menu-section{
+  display:none;
+  animation:fadeIn .4s ease;
+}
+
+.menu-section.is-active{
+  display:block;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(12px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
+.menu-category{
+  margin-bottom:52px;
+}
+
+.menu-category__title{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:clamp(20px, 3vw, 28px);
+  letter-spacing:.02em;
+  text-transform:uppercase;
+  color:var(--char);
+  margin:0 0 28px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+
+.menu-items{
+  display:grid;
+  gap:24px;
+}
+
+.menu-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:20px;
+}
+
+.menu-item__content{
+  flex:1;
+  min-width:0;
+}
+
+.menu-item__name{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:15px;
+  letter-spacing:.02em;
+  color:var(--char);
+  margin:0;
+  margin-bottom:4px;
+}
+
+.menu-item__desc{
+  font-family:var(--f-body);
+  font-weight:400;
+  font-size:13px;
+  color:var(--char-soft);
+  margin:0;
+  line-height:1.5;
+}
+
+.menu-item__price{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:15px;
+  color:var(--orange);
+  white-space:nowrap;
+  flex-shrink:0;
+  padding-top:2px;
+}
+
+/* ─── SUBITEMS (for variations) ────────────────────────── */
+.menu-subitems{
+  margin-left:20px;
+  margin-top:12px;
+  padding-left:16px;
+  border-left:2px solid var(--line);
+  display:grid;
+  gap:12px;
+}
+
+.menu-subitem{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+}
+
+.menu-subitem__name{
+  font-family:var(--f-body);
+  font-weight:400;
+  font-size:14px;
+  color:var(--char-soft);
+  margin:0;
+}
+
+.menu-subitem__price{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:14px;
+  color:var(--orange);
+  white-space:nowrap;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width:768px){
+  .menu-tabs{
+    gap:8px;
+    padding-bottom:16px;
+    border-bottom:1px solid var(--line);
   }
 
-  .menu-page__back {
-    width: 100%;
-    text-align: center;
+  .menu-tabs button{
+    padding:10px 14px;
+    font-size:11px;
+  }
+
+  .menu-tabs button.is-active::after{
+    bottom:-18px;
+  }
+
+  .menu-item{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .menu-item__price{
+    padding-top:0;
+  }
+
+  .menu-container{
+    padding:40px var(--pad);
+  }
+
+  .menu-title{
+    font-size:clamp(28px, 5vw, 40px);
+    margin-bottom:8px;
+  }
+
+  .menu-subtitle{
+    font-size:clamp(18px, 2.5vw, 28px);
+    margin-bottom:32px;
+  }
+}
+
+@media (max-width:560px){
+  .menu-category{
+    margin-bottom:36px;
+  }
+
+  .menu-items{
+    gap:18px;
+  }
+
+  .menu-subitems{
+    margin-left:0;
+    padding-left:0;
+    border-left:none;
+    margin-top:8px;
   }
 }
 </style>
@@ -133,38 +351,564 @@
 <body>
 
 <!-- ─── HEADER ──────────────────────────────────────────── -->
-<header class="menu-page__header">
-  <a href="index.html" class="menu-page__brand" aria-label="Volver al inicio">
+<header class="menu-header">
+  <a href="index.html" class="menu-header__brand" aria-label="Volver al inicio">
     <img src="assets/images/brand/logo.png" alt="" />
     <span>Cocula</span>
   </a>
-  <a href="index.html" class="menu-page__back">← Volver</a>
+  <a href="index.html" class="menu-header__back">← Volver</a>
 </header>
 
-<!-- ─── MENÚ PAGE ────────────────────────────────────────── -->
+<!-- ─── MAIN MENU ────────────────────────────────────────── -->
 <main class="menu-page">
-  <div class="menu-page__container">
+  <div class="menu-container">
+    <h1 class="menu-title">Nuestra Carta</h1>
+    <p class="menu-subtitle">desde 1978</p>
 
-    <!-- Paquetes -->
-    <section class="menu-page__section">
-      <h1 class="menu-page__title">Paquetes</h1>
-      <img src="assets/images/menu-pages/paquetes.png" alt="Menú de paquetes" class="menu-page__image" />
+    <!-- TABS -->
+    <nav class="menu-tabs" aria-label="Categorías del menú">
+      <button class="is-active" data-tab="comida">Comida</button>
+      <button data-tab="bebidas">Bebidas</button>
+    </nav>
+
+    <!-- COMIDA SECTION -->
+    <section class="menu-section is-active" data-panel="comida">
+
+      <!-- BIRRIA -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Birria</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Grande (180 gms)</p>
+            </div>
+            <div class="menu-subitems">
+              <div class="menu-subitem">
+                <p class="menu-subitem__name">Carnaza</p>
+                <p class="menu-subitem__price">$239.00</p>
+              </div>
+              <div class="menu-subitem">
+                <p class="menu-subitem__name">Surtida</p>
+                <p class="menu-subitem__price">$199.00</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Chica (130 gms)</p>
+            </div>
+            <div class="menu-subitems">
+              <div class="menu-subitem">
+                <p class="menu-subitem__name">Carnaza</p>
+                <p class="menu-subitem__price">$195.00</p>
+              </div>
+              <div class="menu-subitem">
+                <p class="menu-subitem__name">Surtida</p>
+                <p class="menu-subitem__price">$175.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTANAS -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Botanas</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Costilla de Cerdo Dorada</p>
+              <p class="menu-item__desc">200 gms</p>
+            </div>
+            <p class="menu-item__price">$189.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Macho</p>
+              <p class="menu-item__desc">200 gms</p>
+            </div>
+            <p class="menu-item__price">$189.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Surtida</p>
+              <p class="menu-item__desc">200 gms · Hígado, riñón y macho</p>
+            </div>
+            <p class="menu-item__price">$160.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Botana Chica</p>
+              <p class="menu-item__desc">140 gms</p>
+            </div>
+            <p class="menu-item__price">$155.00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACOMPAÑAMIENTOS -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Acompañamientos</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Frijoles</p>
+              <p class="menu-item__desc">50 gms</p>
+            </div>
+            <p class="menu-item__price">$29.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Guacamole</p>
+              <p class="menu-item__desc">200 gms</p>
+            </div>
+            <p class="menu-item__price">$105.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Quesadilla</p>
+              <p class="menu-item__desc">50 gms</p>
+            </div>
+            <div class="menu-subitems">
+              <div class="menu-subitem">
+                <p class="menu-subitem__name">Sencilla</p>
+                <p class="menu-subitem__price">$45.00</p>
+              </div>
+              <div class="menu-subitem">
+                <p class="menu-subitem__name">Champiñones</p>
+                <p class="menu-subitem__price">$50.00</p>
+              </div>
+              <div class="menu-subitem">
+                <p class="menu-subitem__name">Chorizo</p>
+                <p class="menu-subitem__price">$50.00</p>
+              </div>
+              <div class="menu-subitem">
+                <p class="menu-subitem__name">Birria</p>
+                <p class="menu-subitem__price">$65.00</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Taco de Birria</p>
+              <p class="menu-item__desc">50 gms</p>
+            </div>
+            <p class="menu-item__price">$55.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Queso Fundido</p>
+              <p class="menu-item__desc">250 gms</p>
+            </div>
+            <div class="menu-subitems">
+              <div class="menu-subitem">
+                <p class="menu-subitem__name">Sencillo</p>
+                <p class="menu-subitem__price">$145.00</p>
+              </div>
+              <div class="menu-subitem">
+                <p class="menu-subitem__name">Champiñones</p>
+                <p class="menu-subitem__price">$165.00</p>
+              </div>
+              <div class="menu-subitem">
+                <p class="menu-subitem__name">Chorizo</p>
+                <p class="menu-subitem__price">$165.00</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Panela</p>
+              <p class="menu-item__desc">250 gms</p>
+            </div>
+            <p class="menu-item__price">$169.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Consomé</p>
+            </div>
+            <p class="menu-item__price">$45.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Carne Asada</p>
+              <p class="menu-item__desc">300 gms</p>
+            </div>
+            <div class="menu-subitems">
+              <div class="menu-subitem">
+                <p class="menu-subitem__name">Peinecillo</p>
+                <p class="menu-subitem__price">$230.00</p>
+              </div>
+              <div class="menu-subitem">
+                <p class="menu-subitem__name">Arrachera</p>
+                <p class="menu-subitem__price">$250.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENSALADAS -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Ensaladas</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Fresca</p>
+              <p class="menu-item__desc">150 gms · Jitomate, lechuga y cebolla</p>
+            </div>
+            <p class="menu-item__price">$110.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Pollo</p>
+              <p class="menu-item__desc">400 gms · Jitomate cherry, pimiento, manzana, lechuga, zanahoria, trocitos de panela y pechuga a la plancha</p>
+            </div>
+            <p class="menu-item__price">$210.00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MENÚ INFANTIL -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Menú Infantil</h2>
+
+        <div style="margin-bottom:32px">
+          <h3 style="font-family:var(--f-display); font-size:13px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--orange); margin:0 0 16px; padding-bottom:8px; border-bottom:1px solid var(--line)">Paquetes</h3>
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="menu-item__content">
+                <p class="menu-item__name">Nuggets de Pollo 6 Piezas</p>
+                <p class="menu-item__desc">120 gms · Con papas a la francesa. Incluye bebida chica 250 ml</p>
+              </div>
+              <p class="menu-item__price">$125.00</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__content">
+                <p class="menu-item__name">Hamburguesa c/Queso</p>
+                <p class="menu-item__desc">130 gms · Con papas a la francesa. Incluye bebida chica 250 ml</p>
+              </div>
+              <p class="menu-item__price">$155.00</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__content">
+                <p class="menu-item__name">Birria Infantil</p>
+                <p class="menu-item__desc">80 gms · Con una quesadilla. Incluye bebida chica 250 ml</p>
+              </div>
+              <p class="menu-item__price">$155.00</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-family:var(--f-display); font-size:13px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--orange); margin:0 0 16px; padding-bottom:8px; border-bottom:1px solid var(--line)">Extras</h3>
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="menu-item__content">
+                <p class="menu-item__name">Papas a la Francesa</p>
+                <p class="menu-item__desc">200 gms</p>
+              </div>
+              <p class="menu-item__price">$92.00</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__content">
+                <p class="menu-item__name">Nuggets 6 Piezas</p>
+                <p class="menu-item__desc">160 gms · Con papas + $15.00</p>
+              </div>
+              <p class="menu-item__price">$95.00</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__content">
+                <p class="menu-item__name">Hamburguesa</p>
+                <p class="menu-item__desc">90 gms · Con papas + $15.00</p>
+              </div>
+              <p class="menu-item__price">$125.00</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__content">
+                <p class="menu-item__name">Birria Infantil</p>
+                <p class="menu-item__desc">80 gms</p>
+              </div>
+              <p class="menu-item__price">$135.00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- POSTRES -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Postres</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Jericalla</p>
+              <p class="menu-item__desc">150 gms</p>
+            </div>
+            <p class="menu-item__price">$55.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Flan</p>
+              <p class="menu-item__desc">100 gms</p>
+            </div>
+            <p class="menu-item__price">$55.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Helado</p>
+            </div>
+            <p class="menu-item__price">$85.00</p>
+          </div>
+        </div>
+      </div>
+
     </section>
 
-    <!-- Bebidas -->
-    <section class="menu-page__section">
-      <h2 class="menu-page__title">Bebidas</h2>
-      <img src="assets/images/menu-pages/bebidas.png" alt="Menú de bebidas" class="menu-page__image" />
-    </section>
+    <!-- BEBIDAS SECTION -->
+    <section class="menu-section" data-panel="bebidas">
 
-    <!-- Platillos -->
-    <section class="menu-page__section">
-      <h2 class="menu-page__title">Platillos</h2>
-      <img src="assets/images/menu-pages/platillos.png" alt="Menú de platillos" class="menu-page__image" />
+      <!-- AGUA FRESCA -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Agua Fresca</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">500 ML</p>
+            </div>
+            <p class="menu-item__price">$48.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">1 Litro</p>
+            </div>
+            <p class="menu-item__price">$85.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Jarra</p>
+            </div>
+            <p class="menu-item__price">$230.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Agua Ciel</p>
+            </div>
+            <p class="menu-item__price">$40.00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIMONADA/NARANJADA -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Limonada / Naranjada</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">500 ML</p>
+            </div>
+            <p class="menu-item__price">$60.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Jarra</p>
+            </div>
+            <p class="menu-item__price">$245.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Chocomilk</p>
+            </div>
+            <p class="menu-item__price">$49.00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- JUGO -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Jugo</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Naranja · Zanahoria · Mixto</p>
+            </div>
+            <p class="menu-item__price">$55.00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- REFRESCOS -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Refrescos</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">192 ML</p>
+            </div>
+            <p class="menu-item__price">$39.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">355 ML</p>
+            </div>
+            <p class="menu-item__price">$50.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">500 ML</p>
+            </div>
+            <p class="menu-item__price">$60.00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERVEZA -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Cerveza</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Premium</p>
+            </div>
+            <p class="menu-item__price">$65.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Nacional</p>
+            </div>
+            <p class="menu-item__price">$58.00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAFÉ -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Café</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Olla</p>
+            </div>
+            <p class="menu-item__price">$48.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Americano</p>
+            </div>
+            <p class="menu-item__price">$54.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Expresso</p>
+            </div>
+            <p class="menu-item__price">$60.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Capuchino</p>
+            </div>
+            <p class="menu-item__price">$87.00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RUSA -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Rusa</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Refresco</p>
+            </div>
+            <p class="menu-item__price">$60.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Premium</p>
+            </div>
+            <p class="menu-item__price">$75.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Nacional</p>
+            </div>
+            <p class="menu-item__price">$69.00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MICHELADA -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Michelada</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Premium</p>
+            </div>
+            <p class="menu-item__price">$83.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Nacional</p>
+            </div>
+            <p class="menu-item__price">$76.00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLAMATO CERVEZA -->
+      <div class="menu-category">
+        <h2 class="menu-category__title">Clamato Cerveza</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Premium</p>
+            </div>
+            <p class="menu-item__price">$95.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Nacional</p>
+            </div>
+            <p class="menu-item__price">$87.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Natural</p>
+            </div>
+            <p class="menu-item__price">$60.00</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__content">
+              <p class="menu-item__name">Vaso para Rusa</p>
+            </div>
+            <p class="menu-item__price">$15.00</p>
+          </div>
+        </div>
+      </div>
+
     </section>
 
   </div>
 </main>
+
+<script>
+// Menu tabs functionality
+const tabButtons = document.querySelectorAll('.menu-tabs button');
+const menuSections = document.querySelectorAll('.menu-section');
+
+tabButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const tabName = button.dataset.tab;
+
+    // Remove active from all buttons and sections
+    tabButtons.forEach(btn => btn.classList.remove('is-active'));
+    menuSections.forEach(section => section.classList.remove('is-active'));
+
+    // Add active to clicked button and corresponding section
+    button.classList.add('is-active');
+    document.querySelector(`[data-panel="${tabName}"]`).classList.add('is-active');
+  });
+});
+</script>
 
 </body>
 </html>
