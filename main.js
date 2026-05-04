@@ -27,7 +27,7 @@ const io = new IntersectionObserver(entries => {
     if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
   });
 }, { threshold: 0.12 });
-document.querySelectorAll('.historia, .menu__head, .spotlight__type, .gallery__head, .visita__head, .dish, .gallery__grid img').forEach(el => {
+document.querySelectorAll('.section__head, .mucho__text, .mucho__img, .barra__type, .barra__gallery img, .historia__text, .historia__media img, .dish, .card, .galeria__track img').forEach(el => {
   el.classList.add('reveal');
   io.observe(el);
 });

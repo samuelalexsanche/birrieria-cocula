@@ -4,23 +4,20 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Birriería Cocula · Desde 1978 · Guadalajara, Jalisco</title>
-<meta name="description" content="Birria tradicional de Cocula, Jalisco. Receta familiar desde 1978. Tacos, quesabirria, panela frita y más en Guadalajara." />
+<meta name="description" content="Birria tradicional de Cocula, Jalisco. Receta familiar desde 1978. Tacos, panela frita y mezcalitas en Guadalajara." />
 <meta property="og:title" content="Birriería Cocula · Desde 1978" />
 <meta property="og:description" content="De Cocula, cuna del mariachi y de la birria, a tu mesa en Guadalajara." />
 <meta property="og:image" content="assets/images/brand/logo.png" />
-<meta name="theme-color" content="#2A2D38" />
+<meta name="theme-color" content="#24262F" />
 <link rel="icon" type="image/png" href="assets/images/brand/logo.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-<!-- paper grain overlay -->
-<div class="grain" aria-hidden="true"></div>
 
 <!-- ─── NAV ─────────────────────────────────────────────── -->
 <header class="nav">
@@ -32,132 +29,82 @@
     </span>
   </a>
   <nav class="nav__links" aria-label="Principal">
-    <a href="#historia">Historia</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#galeria">Galería</a>
     <a href="#menu">Menú</a>
     <a href="#barra">Barra</a>
-    <a href="#contacto">Contáctanos</a>
+    <a href="#contacto">Contacto</a>
   </nav>
-  <a href="#contacto" class="nav__cta">Reservar mesa <span aria-hidden="true">↗</span></a>
+  <a href="tel:+523338232068" class="nav__cta">Reservar <span aria-hidden="true">↗</span></a>
   <button class="nav__burger" aria-label="Abrir menú" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </header>
 
-<!-- ─── HERO ────────────────────────────────────────────── -->
+<!-- ─── HERO SLIDER ─────────────────────────────────────── -->
 <section id="top" class="hero">
-  <div class="hero__meta">
-    <span class="rule"></span>
-    <span>Federalismo · Guadalajara, Jal.</span>
+  <div class="hero__slides" aria-hidden="true">
+    <div class="hero__slide" style="background-image:url('assets/images/menu/birria-grande.jpg')"></div>
+    <div class="hero__slide" style="background-image:url('assets/images/menu/plato-cocula.jpg')"></div>
+    <div class="hero__slide" style="background-image:url('assets/images/menu/panela-asada.jpg')"></div>
+    <div class="hero__slide" style="background-image:url('assets/images/menu/tacos-birria.jpg')"></div>
   </div>
-
-  <div class="hero__type">
-    <p class="hero__kicker">Birriería <em>tradicional</em></p>
-    <h1>
-      <span class="word word--1">Cocula</span>
-      <span class="word word--2"><em>cuna del mariachi</em></span>
-      <span class="word word--3">y de la birria.</span>
-    </h1>
-    <p class="hero__lede">
-      Receta de familia, comal caliente y la paciencia que pide una birria
-      bien hecha. <em>Así desde 1978.</em>
-    </p>
+  <div class="hero__overlay">
+    <div class="hero__logo"><img src="assets/images/brand/logo.png" alt="Logotipo Birriería Cocula" /></div>
+    <h1>Birriería Cocula <em>desde 1978</em></h1>
+    <p class="hero__lede">Cocula, cuna del mariachi y de la birria. Receta de familia, comal caliente y la paciencia que pide una birria bien hecha.</p>
     <div class="hero__cta">
       <a href="#menu" class="btn btn--solid">Ver el menú</a>
       <a href="#contacto" class="btn btn--ghost">Cómo llegar →</a>
     </div>
   </div>
+  <a href="#nosotros" class="hero__scroll">Descubrir</a>
+</section>
 
-  <div class="hero__image hero__image--logo">
-    <div class="hero__logo-wrap">
-      <img src="assets/images/brand/logo.png" alt="Logotipo Birriería Cocula" />
+<!-- ─── MUCHO GUSTO (nosotros) ──────────────────────────── -->
+<section id="nosotros" class="mucho">
+  <div class="mucho__inner">
+    <div class="mucho__img" style="background-image:url('assets/images/menu/birria-grande.jpg')"></div>
+    <div class="mucho__text">
+      <p class="eyebrow">Mucho gusto</p>
+      <h2>Somos Birriería <em>Cocula.</em></h2>
+      <p>Cocula, un pueblo al sur de Jalisco, es reconocido como la cuna del mariachi y de la birria: de ahí vienen dos de las tradiciones más queridas de la cultura mexicana.</p>
+      <p>De ese origen venimos. Desde 1978 servimos birria con el mismo cariño y la misma paciencia que se cocina en casa: comal caliente, tortilla recién hecha y consomé bien servido. Una tradición familiar que seguimos cuidando todos los días.</p>
+      <a href="#menu" class="link-arrow">Conoce nuestra mesa <span>→</span></a>
     </div>
-    <div class="seal" aria-hidden="true">
-      <svg viewBox="0 0 200 200">
-        <defs>
-          <path id="circle" d="M 100,100 m -80,0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0"/>
-        </defs>
-        <text font-family="Fraunces" font-size="14" letter-spacing="3.5" fill="currentColor">
-          <textPath href="#circle" startOffset="0">
-            BIRRIERÍA COCULA · TRADICIÓN TAPATÍA · 1978 ·
-          </textPath>
-        </text>
-      </svg>
-      <div class="seal__core">
-        <span>EST</span>
-        <strong>1978</strong>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero__bottom">
-    <div><kbd>01</kbd> Birria de chivo, res y cerdo</div>
-    <div><kbd>02</kbd> Quesabirria al comal</div>
-    <div><kbd>03</kbd> Panela frita a las brasas</div>
-    <div><kbd>04</kbd> Tortillas hechas a mano</div>
   </div>
 </section>
 
-<!-- ─── MARQUEE ─────────────────────────────────────────── -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track">
-    <span>· Birria al fuego lento</span>
-    <span>· Tortilla recién hecha</span>
-    <span>· Receta familiar</span>
-    <span>· Chivo, res y cerdo</span>
-    <span>· Panela frita</span>
-    <span>· Desde 1978</span>
-    <span>· Birria al fuego lento</span>
-    <span>· Tortilla recién hecha</span>
-    <span>· Receta familiar</span>
-    <span>· Chivo, res y cerdo</span>
-    <span>· Panela frita</span>
-    <span>· Desde 1978</span>
+<!-- ─── GALERÍA ─────────────────────────────────────────── -->
+<section id="galeria" class="section galeria">
+  <div class="section__head">
+    <p class="eyebrow">Fotografías</p>
+    <h2>De la cocina <em>a tu mesa.</em></h2>
+    <p>Cada plato es una versión honesta de la cocina tapatía, pensada para compartir y para repetir.</p>
   </div>
-</div>
-
-<!-- ─── HISTORIA ────────────────────────────────────────── -->
-<section id="historia" class="historia">
-  <div class="historia__head">
-    <p class="eyebrow">Nuestra historia</p>
-    <h2>De un pueblo<br/><em>de Jalisco,</em><br/>a tu mesa.</h2>
+  <div class="galeria__track">
+    <img src="assets/images/menu/birria-grande.jpg" alt="" />
+    <img src="assets/images/menu/plato-cocula.jpg" alt="" />
+    <img src="assets/images/menu/panela-asada.jpg" alt="" />
+    <img src="assets/images/menu/tacos-birria.jpg" alt="" />
+    <img src="assets/images/menu/costilla-cerdo.jpg" alt="" />
+    <img src="assets/images/menu/quesadilla.jpg" alt="" />
+    <img src="assets/images/menu/queso-fundido.jpg" alt="" />
+    <img src="assets/images/menu/guacamole.jpg" alt="" />
+    <img src="assets/images/menu/arrachera.jpg" alt="" />
+    <img src="assets/images/menu/ensalada-fresca.jpg" alt="" />
+    <img src="assets/images/menu/macho.jpg" alt="" />
+    <img src="assets/images/menu/peinecillo.jpg" alt="" />
   </div>
-
-  <div class="historia__body">
-    <p class="lead">
-      Cocula, un pueblo al sur de Jalisco, es reconocido como la cuna del
-      mariachi y de la birria: de ahí vienen dos de las tradiciones más
-      queridas de la cultura mexicana.
-    </p>
-    <p>
-      De ese origen venimos. Desde 1978 servimos birria con el mismo cariño
-      y la misma paciencia que se cocina en casa: comal caliente, tortilla
-      recién hecha y consomé bien servido. Una tradición familiar que
-      seguimos cuidando todos los días.
-    </p>
-    <a href="#menu" class="link-arrow">Conoce nuestra mesa <span>→</span></a>
-  </div>
-
-  <!-- TODO: reemplazar por fotos del centro de Cocula (las tiene el cliente) -->
-  <figure class="historia__img historia__img--a">
-    <img src="assets/images/birria/birria-7.jpg" alt="Platillo de la casa" />
-    <figcaption>De nuestra cocina</figcaption>
-  </figure>
-  <figure class="historia__img historia__img--b">
-    <img src="assets/images/panela/panela-2.jpg" alt="Panela frita tradicional" />
-    <figcaption>Panela frita de la casa</figcaption>
-  </figure>
 </section>
 
-<!-- ─── MENU ────────────────────────────────────────────── -->
-<section id="menu" class="menu">
-  <header class="menu__head">
+<!-- ─── MENÚ ─────────────────────────────────────────────── -->
+<section id="menu" class="section menu">
+  <div class="section__head">
     <p class="eyebrow">La carta</p>
-    <h2>Lo que sale <em>de la cocina.</em></h2>
-    <p class="menu__intro">
-      Una carta corta, hecha a mano. Cada plato es una versión honesta de
-      la cocina tapatía, pensada para compartir y para repetir.
-    </p>
-  </header>
+    <h2>Nuestro <em>menú.</em></h2>
+    <p>Una carta hecha a mano, pensada para compartir. Birria por porción, botanas para empezar, platillos del día y algo dulce para cerrar.</p>
+  </div>
 
   <nav class="menu__tabs" aria-label="Categorías del menú">
     <button class="is-active" data-tab="birria">Birria &amp; Tacos</button>
@@ -180,35 +127,19 @@
       </article>
       <article class="dish">
         <img src="assets/images/menu/birria-chivo.jpg" alt="" />
-        <div class="dish__body">
-          <span class="dish__num">02</span>
-          <h3>Birria mediana</h3>
-          <p>Porción 150 g. Elige chivo, cerdo o ternera. Surtida disponible.</p>
-        </div>
+        <div class="dish__body"><span class="dish__num">02</span><h3>Birria mediana</h3><p>Porción 150 g. Elige chivo, cerdo o ternera. Surtida disponible.</p></div>
       </article>
       <article class="dish">
         <img src="assets/images/menu/birria-mesa.jpg" alt="" />
-        <div class="dish__body">
-          <span class="dish__num">03</span>
-          <h3>Birria chica</h3>
-          <p>Porción 90 g. Para acompañar tacos o probar de todo.</p>
-        </div>
+        <div class="dish__body"><span class="dish__num">03</span><h3>Birria chica</h3><p>Porción 90 g. Para acompañar tacos o probar de todo.</p></div>
       </article>
       <article class="dish">
         <img src="assets/images/menu/tacos-birria.jpg" alt="" />
-        <div class="dish__body">
-          <span class="dish__num">04</span>
-          <h3>Taco de birria</h3>
-          <p>60 g de birria deshebrada en tortilla a mano, con salsa de la casa.</p>
-        </div>
+        <div class="dish__body"><span class="dish__num">04</span><h3>Taco de birria</h3><p>60 g de birria deshebrada en tortilla a mano, con salsa de la casa.</p></div>
       </article>
       <article class="dish">
         <img src="assets/images/menu/quesadilla.jpg" alt="" />
-        <div class="dish__body">
-          <span class="dish__num">05</span>
-          <h3>Quesadilla híbrida</h3>
-          <p>60 g con birria de chivo, ternera o cerdo. Versión natural también disponible.</p>
-        </div>
+        <div class="dish__body"><span class="dish__num">05</span><h3>Quesadilla híbrida</h3><p>60 g con birria de chivo, ternera o cerdo. Versión natural también disponible.</p></div>
       </article>
     </div>
   </div>
@@ -256,7 +187,6 @@
   </div>
 
   <!-- Postres -->
-  <!-- TODO: reemplazar imágenes por fotos reales de postres cuando el cliente las envíe -->
   <div class="menu__panel" data-panel="postres">
     <div class="dish-grid">
       <article class="dish dish--lg">
@@ -272,90 +202,73 @@
       <article class="dish"><img src="assets/images/menu/quesadilla.jpg" alt=""><div class="dish__body"><span class="dish__num">03</span><h3>Helado</h3><p>Una bola de la casa para cerrar bien la mesa.</p></div></article>
     </div>
   </div>
-
 </section>
 
-<!-- ─── BARRA (Mezcalitas) ────────────────────────────────── -->
-<section id="barra" class="spotlight">
-  <div class="spotlight__type">
-    <p class="eyebrow">La barra</p>
-    <h2>Mezcalitas<br/><em>de la</em> casa.</h2>
-    <p>
-      Trabajamos con mezcaleros pequeños de Oaxaca y Jalisco. Cada
-      mezcalita lleva fruta de temporada, agave joven y la sal que mandan
-      los abuelos.
-    </p>
-    <p class="quote">
-      <em>«El mezcal no se toma de un trago, se besa.»</em>
-    </p>
-  </div>
-  <div class="spotlight__gallery">
-    <img src="assets/images/mezcalitas/mezcal-7.jpg" alt="" />
-    <img src="assets/images/mezcalitas/mezcal-8.jpg" alt="" />
-    <img src="assets/images/mezcalitas/mezcal-3.jpg" alt="" />
-    <img src="assets/images/mezcalitas/mezcal-5.jpg" alt="" />
+<!-- ─── BARRA (Mezcalitas) ──────────────────────────────── -->
+<section id="barra" class="barra">
+  <div class="barra__inner">
+    <div class="barra__type">
+      <p class="eyebrow">La barra</p>
+      <h2>Mezcalitas <em>de la casa.</em></h2>
+      <p>Trabajamos con mezcaleros pequeños de Oaxaca y Jalisco. Cada mezcalita lleva fruta de temporada, agave joven y la sal que mandan los abuelos.</p>
+      <p class="quote">«El mezcal no se toma de un trago, se besa.»</p>
+    </div>
+    <div class="barra__gallery">
+      <img src="assets/images/mezcalitas/mezcal-7.jpg" alt="" />
+      <img src="assets/images/mezcalitas/mezcal-8.jpg" alt="" />
+      <img src="assets/images/mezcalitas/mezcal-3.jpg" alt="" />
+    </div>
   </div>
 </section>
 
-<!-- ─── GALLERY ──────────────────────────────────────────── -->
-<section class="gallery" aria-label="Galería">
-  <div class="gallery__head">
-    <p class="eyebrow">Sala &amp; mesa</p>
-    <h2>Una <em>foto</em> sabe más<br/>que mil <em>menús</em>.</h2>
-  </div>
-  <!-- TODO: reemplazar por fotos del lugar (interior y exterior del negocio) -->
-  <div class="gallery__grid">
-    <img src="assets/images/birria/birria-2.jpg" alt="" />
-    <img src="assets/images/botanas/botana-7.jpg" alt="" />
-    <img src="assets/images/birria/birria-6.jpg" alt="" />
-    <img src="assets/images/platillos/platillo-7.jpg" alt="" />
-    <img src="assets/images/birria/birria-11.jpg" alt="" />
-    <img src="assets/images/botanas/botana-8.jpg" alt="" />
-    <img src="assets/images/birria/birria-14.jpg" alt="" />
-    <img src="assets/images/platillos/platillo-8.jpg" alt="" />
+<!-- ─── HISTORIA ────────────────────────────────────────── -->
+<section id="historia" class="section historia">
+  <div class="historia__inner">
+    <div class="historia__media">
+      <!-- TODO: reemplazar por fotos del centro de Cocula (las tiene el cliente) -->
+      <img src="assets/images/menu/birria-grande.jpg" alt="Platillo de la casa" />
+      <img src="assets/images/menu/panela-asada.jpg" alt="Panela frita tradicional" />
+    </div>
+    <div class="historia__text">
+      <p class="eyebrow">Nuestra historia</p>
+      <h2>Mejorando <em>con el tiempo.</em></h2>
+      <p>Empezamos en 1978 con una receta familiar y un comal caliente. Hoy seguimos cuidando ese mismo proceso: cocción lenta, tortillas hechas a mano y consomé bien servido.</p>
+      <p>Nuestra cocina nació en Cocula y se quedó en Guadalajara. Casi medio siglo después, esta sigue siendo una mesa para reunirse, compartir y volver.</p>
+    </div>
   </div>
 </section>
 
-<!-- ─── CONTACTO ────────────────────────────────────────── -->
-<section id="contacto" class="visita">
-  <div class="visita__head">
-    <p class="eyebrow">Visítanos</p>
-    <h2>Contáctanos.</h2>
+<!-- ─── A TU SERVICIO (contacto) ────────────────────────── -->
+<section id="contacto" class="section servicio">
+  <div class="section__head">
+    <p class="eyebrow">A tu servicio</p>
+    <h2>Visítanos.</h2>
+    <p>Estamos en Federalismo, en pleno corazón de Guadalajara. Abierto todos los días.</p>
   </div>
 
-  <div class="visita__info">
-    <div class="info-block">
-      <p class="info-block__label">Dirección</p>
-      <p class="info-block__value">
-        Calz. del Federalismo Nte. 1374<br/>
-        Mezquitán · C.P. 44260<br/>
-        Guadalajara, Jalisco
-      </p>
-      <a href="https://maps.google.com/?q=Calz.+del+Federalismo+Nte+1374+Mezquitan+Guadalajara+Jalisco" target="_blank" rel="noopener" class="link-arrow">Abrir en Google Maps <span>→</span></a>
+  <div class="servicio__cards">
+    <div class="card">
+      <div class="card__icon">⌘</div>
+      <h3>Dirección</h3>
+      <p>Calz. del Federalismo Nte. 1374<br/>Mezquitán, C.P. 44260<br/>Guadalajara, Jalisco</p>
     </div>
-    <div class="info-block">
-      <p class="info-block__label">Horario</p>
-      <p class="info-block__value">
-        Abierto todos los días<br/>
-        de 10:00 a 18:00 h
-      </p>
+    <div class="card">
+      <div class="card__icon">⏱</div>
+      <h3>Horario</h3>
+      <p>Abierto todos los días<br/>de 10:00 a 18:00 h</p>
     </div>
-    <div class="info-block">
-      <p class="info-block__label">Teléfono</p>
-      <p class="info-block__value">
-        <a href="tel:+523338232068">+52 33 3823 2068</a>
-      </p>
-    </div>
-    <div class="info-block">
-      <p class="info-block__label">Síguenos</p>
-      <p class="info-block__value info-block__social">
-        <a href="https://www.instagram.com/bcocula/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
-        <a href="https://www.facebook.com/profile.php?id=61584053353996" target="_blank" rel="noopener">Facebook <span>↗</span></a>
+    <div class="card">
+      <div class="card__icon">☏</div>
+      <h3>Contacto</h3>
+      <p><a href="tel:+523338232068">+52 33 3823 2068</a></p>
+      <p class="card__social">
+        <a href="https://www.instagram.com/bcocula/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61584053353996" target="_blank" rel="noopener">Facebook</a>
       </p>
     </div>
   </div>
 
-  <div class="visita__map">
+  <div class="servicio__map">
     <iframe
       title="Mapa Birriería Cocula"
       src="https://www.google.com/maps?q=Calz.%20del%20Federalismo%20Nte%201374%2C%20Mezquitan%2C%20Guadalajara&output=embed"
@@ -375,19 +288,22 @@
         <p>Desde 1978 · Guadalajara, Jalisco</p>
       </div>
     </div>
-    <div class="foot__contact">
-      <p>Calz. del Federalismo Nte. 1374 · Mezquitán</p>
-      <p>10:00 a 18:00 h · Todos los días</p>
-      <p><a href="tel:+523338232068">+52 33 3823 2068</a></p>
-      <div class="foot__social">
-        <a href="https://www.instagram.com/bcocula/" target="_blank" rel="noopener">Instagram ↗</a>
-        <a href="https://www.facebook.com/profile.php?id=61584053353996" target="_blank" rel="noopener">Facebook ↗</a>
-      </div>
+    <div class="foot__col">
+      <h4>Visítanos</h4>
+      <p>Calz. del Federalismo Nte. 1374</p>
+      <p>Mezquitán, Guadalajara</p>
+      <p>10:00 a 18:00 h · Diario</p>
+    </div>
+    <div class="foot__col">
+      <h4>Contacto</h4>
+      <a href="tel:+523338232068">+52 33 3823 2068</a>
+      <a href="https://www.instagram.com/bcocula/" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="https://www.facebook.com/profile.php?id=61584053353996" target="_blank" rel="noopener">Facebook ↗</a>
     </div>
   </div>
   <div class="foot__base">
-    <span>© 2026 Birriería Cocula · Todos los derechos reservados.</span>
-    <span>Hecho con cariño en Guadalajara.</span>
+    <span>© 2026 Birriería Cocula</span>
+    <span>Hecho con cariño en Guadalajara</span>
   </div>
 </footer>
 
