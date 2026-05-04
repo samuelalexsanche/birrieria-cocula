@@ -314,8 +314,8 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 .galeria__nav:active{
   transform:translateY(-50%) scale(0.95);
 }
-.galeria__nav--prev{left:calc(var(--pad) + 8px)}
-.galeria__nav--next{right:calc(var(--pad) + 8px)}
+.galeria__nav--prev{left:12px}
+.galeria__nav--next{right:12px}
 .galeria__quote{
   text-align:center;
   font-family:var(--f-accent);
