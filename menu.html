@@ -127,6 +127,15 @@ a{color:inherit; text-decoration:none}
   font-size:13px;
   letter-spacing:.18em;
   text-transform:uppercase;
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+.menu-header__brand small{
+  font-weight:400;
+  font-size:9px;
+  letter-spacing:.32em;
+  opacity:.75;
 }
 
 .menu-header__back{
@@ -628,7 +637,10 @@ a{color:inherit; text-decoration:none}
 <header class="menu-header">
   <a href="index.html" class="menu-header__brand" aria-label="Volver al inicio">
     <img src="assets/images/brand/logo.png" alt="" />
-    <span>Cocula</span>
+    <span>
+      <small>Birriería</small>
+      Cocula
+    </span>
   </a>
   <a href="index.html" class="menu-header__back">← Volver</a>
 </header>
