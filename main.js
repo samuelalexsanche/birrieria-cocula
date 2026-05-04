@@ -32,40 +32,4 @@ document.querySelectorAll('.section__head, .mucho__text, .mucho__img, .barra__ty
   io.observe(el);
 });
 
-// Galería - Carrusel automático y botones
-const galeriaTrack = document.querySelector('.galeria__track');
-const galeríaPrevBtn = document.querySelector('.galeria__nav--prev');
-const galeriaNextBtn = document.querySelector('.galeria__nav--next');
-
-let autoplayInterval;
-const SCROLL_AMOUNT = 380; // Ancho de imagen
-const AUTOPLAY_DELAY = 4000; // 4 segundos
-
-function scrollGaleria(direction) {
-  const scrollAmount = direction === 'next' ? SCROLL_AMOUNT : -SCROLL_AMOUNT;
-  galeriaTrack.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  resetAutoplay();
-}
-
-function startAutoplay() {
-  autoplayInterval = setInterval(() => {
-    galeriaTrack.scrollBy({ left: SCROLL_AMOUNT, behavior: 'smooth' });
-  }, AUTOPLAY_DELAY);
-}
-
-function resetAutoplay() {
-  clearInterval(autoplayInterval);
-  startAutoplay();
-}
-
-galeriaNextBtn?.addEventListener('click', () => scrollGaleria('next'));
-galeríaPrevBtn?.addEventListener('click', () => scrollGaleria('prev'));
-
-// Pausar autoplay cuando el usuario interactúa
-galeriaTrack?.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
-galeriaTrack?.addEventListener('mouseleave', startAutoplay);
-galeriaTrack?.addEventListener('touchstart', () => clearInterval(autoplayInterval));
-galeriaTrack?.addEventListener('touchend', resetAutoplay);
-
-// Iniciar autoplay
-startAutoplay();
+// Galería: la animación es 100% CSS (banda infinita marquee)
