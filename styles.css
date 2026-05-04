@@ -262,9 +262,6 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 .galeria{background:var(--cream-soft)}
 .galeria__wrapper{
   position:relative;
-  display:flex;
-  align-items:center;
-  gap:24px;
   margin:0 0 32px;
 }
 .galeria__track{
@@ -275,7 +272,6 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
   scrollbar-width:none;
   scroll-behavior:smooth;
   -webkit-overflow-scrolling:touch;
-  flex:1;
 }
 .galeria__track::-webkit-scrollbar{display:none}
 .galeria__track img{
@@ -290,6 +286,10 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 }
 .galeria__track img:hover{transform:translateY(-4px) scale(1.02)}
 .galeria__nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:10;
   font-family:var(--f-display);
   font-size:32px;
   font-weight:700;
@@ -303,20 +303,19 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
   display:flex;
   align-items:center;
   justify-content:center;
-  transition:all .3s ease;
-  flex-shrink:0;
-  box-shadow:0 4px 12px rgba(232,133,30,.3);
+  transition:background .25s ease, box-shadow .25s ease, transform .15s ease;
+  box-shadow:0 4px 16px rgba(0,0,0,.3);
 }
 .galeria__nav:hover{
   background:var(--orange-deep);
-  transform:scale(1.1);
-  box-shadow:0 6px 16px rgba(232,133,30,.4);
+  box-shadow:0 6px 20px rgba(0,0,0,.4);
+  transform:translateY(-50%) scale(1.1);
 }
 .galeria__nav:active{
-  transform:scale(0.95);
+  transform:translateY(-50%) scale(0.95);
 }
-.galeria__nav--prev{margin-left:-12px}
-.galeria__nav--next{margin-right:-12px}
+.galeria__nav--prev{left:calc(var(--pad) + 8px)}
+.galeria__nav--next{right:calc(var(--pad) + 8px)}
 .galeria__quote{
   text-align:center;
   font-family:var(--f-accent);
@@ -577,10 +576,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 
   .servicio__cards{grid-template-columns:1fr}
 
-  .galeria__wrapper{gap:16px}
   .galeria__nav{width:40px; height:40px; font-size:24px}
-  .galeria__nav--prev{margin-left:-6px}
-  .galeria__nav--next{margin-right:-6px}
 
   .foot__inner{gap:40px; padding:48px var(--pad) 36px}
   .foot__base{flex-direction:column; gap:8px}
@@ -591,10 +587,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
   .dish--lg{grid-column:auto}
   .menu__tabs button{padding:12px 14px; font-size:10px; letter-spacing:.18em}
 
-  .galeria__wrapper{gap:12px}
   .galeria__nav{width:36px; height:36px; font-size:20px}
-  .galeria__nav--prev{margin-left:-4px}
-  .galeria__nav--next{margin-right:-4px}
 }
 
 /* reveal */
