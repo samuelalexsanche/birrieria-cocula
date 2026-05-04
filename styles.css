@@ -449,28 +449,42 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 }
 .foot__inner{
   max-width:var(--maxw); margin:0 auto;
-  display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:48px;
-  padding-bottom:40px;
+  display:flex; flex-direction:column; align-items:center; gap:56px;
+  padding:64px var(--pad) 48px;
+  text-align:center;
   border-bottom:1px solid rgba(248,239,212,.12);
 }
-.foot__brand{display:flex; gap:18px; align-items:center}
-.foot__logo{width:64px; height:64px; border-radius:50%; object-fit:contain; flex-shrink:0}
+.foot__brand{display:flex; flex-direction:column; gap:20px; align-items:center}
+.foot__logo{width:72px; height:72px; border-radius:50%; object-fit:contain; flex-shrink:0}
 .foot__brand h3{
-  font-family:var(--f-display); font-weight:700; font-size:18px;
-  letter-spacing:.18em; text-transform:uppercase; margin:0 0 4px;
+  font-family:var(--f-display); font-weight:700; font-size:20px;
+  letter-spacing:.18em; text-transform:uppercase; margin:0 0 6px;
 }
 .foot__brand h3 em{font-family:var(--f-accent); font-style:italic; color:var(--orange); text-transform:none; letter-spacing:0}
-.foot__brand p{margin:0; font-size:12px; opacity:.7; letter-spacing:.1em}
+.foot__brand p{margin:0; font-size:13px; opacity:.75; letter-spacing:.1em}
+.foot__col{display:flex; flex-direction:column; align-items:center; gap:18px}
 .foot__col h4{
-  font-family:var(--f-display); font-weight:700; font-size:11px;
-  letter-spacing:.28em; text-transform:uppercase; color:var(--orange);
-  margin:0 0 14px;
+  font-family:var(--f-display); font-weight:700; font-size:12px;
+  letter-spacing:.3em; text-transform:uppercase; color:var(--orange);
+  margin:0;
 }
 .foot__col p, .foot__col a{
-  font-size:14px; line-height:1.7; color:rgba(248,239,212,.85);
-  margin:0; display:block;
+  font-size:15px; line-height:1.7; color:rgba(248,239,212,.85);
+  margin:0;
+  transition:color .25s ease;
 }
-.foot__col a:hover{color:var(--orange)}
+.foot__col a{
+  display:inline-block;
+  padding:8px 16px;
+  border:1px solid rgba(248,239,212,.3);
+  border-radius:3px;
+  text-decoration:none;
+}
+.foot__col a:hover{
+  color:var(--orange);
+  border-color:var(--orange);
+  background:rgba(232,133,30,.08);
+}
 .foot__base{
   max-width:var(--maxw); margin:24px auto 0;
   display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
@@ -508,7 +522,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 
   .servicio__cards{grid-template-columns:1fr}
 
-  .foot__inner{grid-template-columns:1fr; gap:32px}
+  .foot__inner{gap:40px; padding:48px var(--pad) 36px}
   .foot__base{flex-direction:column; gap:8px}
 }
 
