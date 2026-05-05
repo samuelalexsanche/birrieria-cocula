@@ -689,6 +689,21 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 }
 .historia__text p{font-size:16px; line-height:1.7; color:var(--char-soft); margin:0 0 16px}
 
+/* ─── ZARAPE DECORATION ──────────────────────────────── */
+.zarape-decor{
+  display:block;
+  width:clamp(180px, 22vw, 260px);
+  height:auto;
+  margin:0 0 18px;
+  transform:rotate(-3deg);
+  filter:drop-shadow(0 4px 12px rgba(36,38,47,.10));
+  pointer-events:none;
+  user-select:none;
+}
+@media (max-width:600px){
+  .zarape-decor{ margin:0 auto 18px; transform:rotate(-2deg) }
+}
+
 /* ─── FOOTER ─────────────────────────────────────────── */
 .foot{
   background:var(--char); color:var(--cream-soft);
