@@ -528,8 +528,8 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 .barra__cards{
   list-style:none; padding:0;
   max-width:var(--maxw); margin:0 auto;
-  display:grid; grid-template-columns:repeat(5, 1fr);
-  gap:24px 18px;
+  display:grid; grid-template-columns:repeat(3, 1fr);
+  gap:36px 24px;
   position:relative; z-index:1;
   counter-reset:drink;
 }
@@ -537,9 +537,6 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
   margin:0; display:flex; flex-direction:column;
   position:relative;
 }
-/* offsets editoriales sutiles */
-.barra__cards .drink:nth-child(2),
-.barra__cards .drink:nth-child(4){ transform:translateY(20px) }
 
 .drink__media{
   position:relative; overflow:hidden; border-radius:2px;
@@ -600,11 +597,6 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
   border-top:1px solid rgba(248,239,212,.1);
 }
 
-@media (max-width:1080px){
-  .barra__cards{ grid-template-columns:repeat(3, 1fr); gap:28px 20px }
-  .barra__cards .drink:nth-child(2){ transform:none }
-  .barra__cards .drink:nth-child(3){ transform:translateY(20px) }
-}
 @media (max-width:960px){
   .barra__head{
     grid-template-columns:1fr; gap:24px;
@@ -616,22 +608,14 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
     padding-top:20px;
     border-top:1px solid rgba(248,239,212,.14);
   }
-  .drink-feature{ grid-template-columns:1fr; gap:24px }
-  .drink-feature__media{ aspect-ratio:4/3; max-width:none }
 }
 @media (max-width:680px){
-  .barra__cards{ grid-template-columns:repeat(2, 1fr) }
-  .barra__cards .drink:nth-child(3){ transform:none }
-  .barra__cards .drink:nth-child(4){ transform:translateY(18px) }
+  .barra__cards{ grid-template-columns:repeat(2, 1fr); gap:28px 20px }
 }
 @media (max-width:480px){
   .barra::before{ font-size:clamp(80px, 30vw, 140px) }
   .barra__cards{ grid-template-columns:1fr; gap:28px }
-  .barra__cards .drink{ transform:none !important }
   .drink__media{ aspect-ratio:1/1 }
-  .drink-feature__notes{ grid-template-columns:1fr; gap:12px }
-  .drink-feature__notes li{ flex-direction:row; align-items:baseline; gap:14px }
-  .drink-feature__notes span{ min-width:60px }
 }
 
 /* ─── A TU SERVICIO (contacto cards) ──────────────────── */
