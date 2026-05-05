@@ -528,8 +528,8 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 .barra__cards{
   list-style:none; padding:0;
   max-width:var(--maxw); margin:0 auto;
-  display:grid; grid-template-columns:repeat(3, 1fr);
-  gap:36px 24px;
+  display:grid; grid-template-columns:repeat(5, 1fr);
+  gap:24px 18px;
   position:relative; z-index:1;
   counter-reset:drink;
 }
@@ -608,6 +608,9 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
     padding-top:20px;
     border-top:1px solid rgba(248,239,212,.14);
   }
+}
+@media (max-width:1080px){
+  .barra__cards{ grid-template-columns:repeat(3, 1fr); gap:32px 20px }
 }
 @media (max-width:680px){
   .barra__cards{ grid-template-columns:repeat(2, 1fr); gap:28px 20px }
