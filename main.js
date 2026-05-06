@@ -32,4 +32,14 @@ document.querySelectorAll('.section__head, .mucho__text, .mucho__img, .barra__ty
   io.observe(el);
 });
 
-// Galería: la animación es 100% CSS (banda infinita marquee)
+// Galería: clonamos los items una vez para que el marquee CSS sea infinito
+// sin tener duplicados visibles en el HTML.
+const __galeriaTrack = document.querySelector('.galeria__track');
+if (__galeriaTrack) {
+  const __originals = Array.from(__galeriaTrack.children);
+  __originals.forEach(node => {
+    const clone = node.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    __galeriaTrack.appendChild(clone);
+  });
+}
