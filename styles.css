@@ -39,6 +39,27 @@ a{color:inherit; text-decoration:none}
 button{font:inherit; cursor:pointer; border:0; background:transparent; color:inherit}
 ::selection{background:var(--orange); color:#fff}
 
+/* ─── DECORATIVE CORNER ORNAMENTS (fixed) ──────────────── */
+.corner-ornament{
+  position:fixed;
+  width:clamp(80px, 10vw, 140px);
+  height:clamp(80px, 10vw, 140px);
+  background-image:url('assets/images/decor/corner-ornament.svg');
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+  pointer-events:none;
+  z-index:40;
+  opacity:.85;
+}
+.corner-ornament--tl{ top:8px; left:8px; }
+.corner-ornament--tr{ top:8px; right:8px; transform:scaleX(-1); }
+.corner-ornament--bl{ bottom:8px; left:8px; transform:scaleY(-1); }
+.corner-ornament--br{ bottom:8px; right:8px; transform:scale(-1,-1); }
+@media (max-width:680px){
+  .corner-ornament{ width:60px; height:60px; opacity:.7; }
+}
+
 /* ─── NAV ──────────────────────────────────────────────── */
 .nav{
   position:fixed; top:0; left:0; right:0; z-index:50;
