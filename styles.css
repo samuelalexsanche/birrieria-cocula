@@ -669,7 +669,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 .rappi-card{
   display:flex; align-items:center; justify-content:space-between;
   gap:24px; flex-wrap:wrap;
-  margin:0 0 48px;
+  margin:32px 0 0;
   padding:24px 32px;
   background:#FF441F;
   color:#fff;
