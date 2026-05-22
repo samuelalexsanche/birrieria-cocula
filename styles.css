@@ -728,9 +728,10 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 }
 
 /* ─── HISTORIA ─────────────────────────────────────────── */
-.historia{background:var(--cream)}
+.historia{background:var(--cream); max-width:none; padding-left:0; padding-right:0;}
 .historia__inner{
   max-width:var(--maxw); margin:0 auto;
+  padding:0 var(--pad);
   display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px, 5vw, 72px);
   align-items:center;
 }
