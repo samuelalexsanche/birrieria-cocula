@@ -665,6 +665,67 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 }
 .servicio__map iframe{width:100%; height:100%; border:0; display:block}
 
+/* ─── RAPPI CARD ─────────────────────────────────────── */
+.rappi-card{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:24px; flex-wrap:wrap;
+  margin:0 0 48px;
+  padding:24px 32px;
+  background:#FF441F;
+  color:#fff;
+  border-radius:6px;
+  text-decoration:none;
+  transition:transform .25s ease, box-shadow .25s ease;
+  position:relative; overflow:hidden;
+}
+.rappi-card::before{
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(ellipse at top right, rgba(255,255,255,.12) 0%, transparent 60%);
+  pointer-events:none;
+}
+.rappi-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(255,68,31,.35);
+}
+.rappi-card__text{ position:relative; z-index:1; max-width:560px }
+.rappi-card__eyebrow{
+  font-family:var(--f-display); font-weight:700; font-size:10px;
+  letter-spacing:.32em; text-transform:uppercase;
+  color:rgba(255,255,255,.85);
+  margin:0 0 6px;
+}
+.rappi-card__title{
+  font-family:var(--f-display); font-weight:700; font-size:clamp(18px, 2.2vw, 24px);
+  letter-spacing:.01em; line-height:1.25;
+  margin:0;
+}
+.rappi-card__title em{
+  font-family:var(--f-accent); font-style:italic; font-weight:400;
+  color:#fff; letter-spacing:0;
+}
+.rappi-card__brand{
+  position:relative; z-index:1;
+  display:flex; flex-direction:column; align-items:flex-end; gap:2px;
+}
+.rappi-card__through{
+  font-family:var(--f-display); font-weight:600; font-size:10px;
+  letter-spacing:.28em; text-transform:uppercase;
+  color:rgba(255,255,255,.8);
+}
+.rappi-card__logo{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-weight:900; font-size:36px;
+  letter-spacing:-.02em;
+  color:#fff;
+  line-height:1;
+}
+@media (max-width:560px){
+  .rappi-card{ justify-content:center; text-align:center; padding:22px 24px }
+  .rappi-card__text{ width:100% }
+  .rappi-card__brand{ align-items:center }
+  .rappi-card__logo{ font-size:32px }
+}
+
 /* ─── HISTORIA ─────────────────────────────────────────── */
 .historia{background:var(--cream)}
 .historia__inner{
