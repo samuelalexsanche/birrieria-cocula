@@ -13,27 +13,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
 
 <style>
-/* ─── DECORATIVE CORNER ORNAMENTS (fixed) ──────────────── */
-.corner-ornament{
-  position:fixed;
-  width:clamp(80px, 10vw, 140px);
-  height:clamp(80px, 10vw, 140px);
-  background-image:url('assets/images/decor/corner-ornament.svg');
-  background-size:contain;
-  background-repeat:no-repeat;
-  background-position:center;
-  pointer-events:none;
-  z-index:40;
-  opacity:.85;
-}
-.corner-ornament--tl{ top:8px; left:8px; }
-.corner-ornament--tr{ top:8px; right:8px; transform:scaleX(-1); }
-.corner-ornament--bl{ bottom:8px; left:8px; transform:scaleY(-1); }
-.corner-ornament--br{ bottom:8px; right:8px; transform:scale(-1,-1); }
-@media (max-width:680px){
-  .corner-ornament{ width:60px; height:60px; opacity:.7; }
-}
-
 :root{
   --cream: #F2E5C2;
   --cream-deep: #E9D69E;
@@ -877,12 +856,6 @@ a{color:inherit; text-decoration:none}
 </style>
 </head>
 <body>
-
-<!-- ─── DECORATIVE CORNERS ──────────────────────────────── -->
-<div class="corner-ornament corner-ornament--tl" aria-hidden="true"></div>
-<div class="corner-ornament corner-ornament--tr" aria-hidden="true"></div>
-<div class="corner-ornament corner-ornament--bl" aria-hidden="true"></div>
-<div class="corner-ornament corner-ornament--br" aria-hidden="true"></div>
 
 <!-- ─── HEADER ───────────────────────────────────────────── -->
 <header class="menu-header">
