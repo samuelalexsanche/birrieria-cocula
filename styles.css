@@ -625,9 +625,21 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 /* ─── A TU SERVICIO (contacto cards) ──────────────────── */
 .servicio{background:var(--cream-soft)}
 .servicio__cards{
-  display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:24px;
   margin-bottom:48px;
 }
+@media (max-width:920px){
+  .servicio__cards{ grid-template-columns:repeat(2, 1fr) }
+}
+@media (max-width:560px){
+  .servicio__cards{ grid-template-columns:1fr }
+}
+.card--link{ display:block; cursor:pointer; }
+.card__rappi{
+  font-family:var(--f-display); font-weight:700; font-size:12px;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--orange);
+}
+.card__rappi strong{ font-size:16px; letter-spacing:.04em; }
 .card{
   background:var(--cream);
   padding:36px 32px;
