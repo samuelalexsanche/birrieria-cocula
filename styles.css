@@ -770,15 +770,12 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
   width:clamp(220px, 28vw, 320px);
   height:auto;
   margin:0 0 18px;
-  transform:rotate(-3deg);
-  transform-origin:left center;
   filter:drop-shadow(0 4px 12px rgba(36,38,47,.10));
   pointer-events:none;
   user-select:none;
-  overflow:visible;
 }
 @media (max-width:600px){
-  .zarape-decor{ margin:0 auto 18px; transform:rotate(-2deg) }
+  .zarape-decor{ margin:0 auto 18px }
 }
 
 /* ─── FOOTER ─────────────────────────────────────────── */
