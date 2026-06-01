@@ -855,7 +855,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 
   .servicio__cards{grid-template-columns:1fr}
 
-  .galeria__track{ animation-duration:45s }
+  .galeria__track{ animation-duration:90s }
 
   .foot__inner{gap:14px; padding:16px 0 14px}
   .foot__brand p{display:none}
@@ -867,7 +867,7 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
   .dish--lg{grid-column:auto}
   .menu__tabs button{padding:12px 14px; font-size:10px; letter-spacing:.18em}
 
-  .galeria__track{ animation-duration:35s; gap:14px }
+  .galeria__track{ animation-duration:110s; gap:14px }
   @keyframes galeria-scroll{
     from{ transform:translateX(0) }
     to  { transform:translateX(calc(-50% - 7px)) }
