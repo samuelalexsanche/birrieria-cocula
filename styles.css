@@ -827,17 +827,22 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
 
 /* ─── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width:960px){
-  .nav__links{
-    position:fixed; top:0; right:-100%; bottom:0;
-    width:280px; background:var(--char);
-    flex-direction:column; gap:24px;
-    padding:96px 32px 32px;
-    transition:right .35s ease;
+  .nav{
+    flex-direction:column; gap:8px;
+    padding:10px var(--pad) 8px;
   }
-  .nav__links.is-open{right:0}
+  .nav__links{
+    display:flex; flex-direction:row; flex-wrap:nowrap;
+    gap:18px; justify-content:center; align-items:center;
+    width:100%; overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .nav__links::-webkit-scrollbar{display:none}
+  .nav__links a{font-size:10px; letter-spacing:.18em; white-space:nowrap}
   .nav__cta{display:none}
-  .nav__burger{display:flex; z-index:60}
+  .nav__burger{display:none}
   .nav__brand span{font-size:13px}
+  .nav__brand img{width:36px; height:36px}
 
   .hero{height:84vh; min-height:480px}
   .hero h1{font-size:clamp(32px, 8vw, 56px)}
@@ -866,6 +871,9 @@ button{font:inherit; cursor:pointer; border:0; background:transparent; color:inh
   .dish-grid{grid-template-columns:1fr}
   .dish--lg{grid-column:auto}
   .menu__tabs button{padding:12px 14px; font-size:10px; letter-spacing:.18em}
+
+  .nav__links{gap:14px}
+  .nav__links a{font-size:9px; letter-spacing:.14em}
 
   .galeria__track{ animation-duration:110s; gap:14px }
   @keyframes galeria-scroll{
